@@ -24,7 +24,7 @@ public class MonsterData : ScriptableObject
     public int Monster_ID;
 
     [Header("Progresión")]
-    public int Amount_Monster_Killed;
+    //public int Amount_Monster_Killed;
     public int Amount_Monster_NeedKill;
     public bool Is_In_Monster_House;
     public bool Can_Monster_House;
