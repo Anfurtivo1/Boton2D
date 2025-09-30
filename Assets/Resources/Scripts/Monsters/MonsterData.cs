@@ -52,5 +52,12 @@ public class MonsterData : ScriptableObject
     [Header("Condiciones de Aparición")]
     public MonsterData Other_Monster_Kill;
     public int Other_Monster_Kill_Amount;
+
+    [Header("Prefab enemigo que ataca")]
+    public GameObject Monster_Prefab_Evil;
+
+    [Header("Prefab enemigo en pecera")]
+    public GameObject Monster_Prefab_Good;
+
 }
 

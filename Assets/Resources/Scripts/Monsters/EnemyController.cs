@@ -17,10 +17,20 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         Enemy_Target = GameObject.FindGameObjectWithTag("Player");
+        
 
         //Calculo velocidad y vida inicial
         Enemy_Current_Speed = Enemy_Base_Speed * Enemy_Data.Monster_Speed;
         Enemy_Current_HP = Enemy_Data.Monster_HP;
+
+        GameObject GameManager = GameObject.FindWithTag("GameManager");
+
+        if (GameManager != null)
+        {
+            gameManager = GameManager.GetComponent<GameManager>();
+            Debug.Log("GameManager encontrado y asignado.");
+        }
+
     }
 
     void Update()
@@ -30,11 +40,17 @@ public class EnemyController : MonoBehaviour
 
     private void MoveTowardsPlayer()
     {
-        //La dirección
-        Vector3 direction = (Enemy_Target.transform.position - transform.position).normalized;
 
-        //La velocidad
-        transform.position += direction * Enemy_Current_Speed * Time.deltaTime;
+        if (Enemy_Target != null)
+        {
+            //La dirección
+            Vector3 direction = (Enemy_Target.transform.position - transform.position).normalized;
+
+            //La velocidad
+            transform.position += direction * Enemy_Current_Speed * Time.deltaTime;
+
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
