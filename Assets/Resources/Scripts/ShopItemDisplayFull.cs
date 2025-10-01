@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [Header("Data")]
-    public List<ShopItem> shopItems;   // ScriptableObject assets
+    public List<ItemShop> shopItems;   // ScriptableObject assets
 
     [Header("Slots (Prefabs in Scene)")]
     public List<GameObject> itemSlots; // The 4 prefabs in the UI
@@ -21,7 +21,7 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < itemSlots.Count && i < shopItems.Count; i++)
         {
-            ShopItem item = shopItems[i];
+            ItemShop item = shopItems[i];
             GameObject slot = itemSlots[i];
 
             // Assuming each prefab has these components in children:
@@ -33,7 +33,7 @@ public class ShopManager : MonoBehaviour
             // Fill with data
             nameText.text = item.itemName;
             priceText.text = "$" + item.itemPrice;
-            iconImage.sprite = item.itemIcon;
+            iconImage.sprite = item.itemSprite;
             descriptionText.text = item.itemDescription;
         }
     }

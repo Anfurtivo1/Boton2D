@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ShopItemDisplay : MonoBehaviour
 {
 
-    public ItemShop myShopÌtem;
+    public ItemShop myShopItem;
 
     public TextMeshProUGUI itemPrice;
     public TextMeshProUGUI itemName;
@@ -16,12 +16,12 @@ public class ShopItemDisplay : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (myShopÌtem != null)
+        if (myShopItem != null)
         {
-            itemName.text = myShopÌtem.itemName;
-            itemPrice.text = myShopÌtem.itemPrice.ToString();
-            itemSprite.sprite = myShopÌtem.itemSprite;
-            itemDescription.text = myShopÌtem.itemDescription;
+            itemName.text = myShopItem.itemName;
+            itemPrice.text = myShopItem.itemPrice.ToString();
+            itemSprite.sprite = myShopItem.itemSprite;
+            itemDescription.text = myShopItem.itemDescription;
         }
     }
 
