@@ -5,13 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("Ajustes del jugador")]
-    public GameObject Player;
-    public GameObject BulletPrefab;
-    public int Bullet_Damage = 1;        
-    public int Player_HP = 3;          
-    public float Player_AttackRate = 0.5f; 
-
     [Header("Ajustes del juego")]
     public int Money_Amount = 0;
     public Dictionary<int, int> MonsterKills = new Dictionary<int, int>(); //Diccionario de kills por ID de monstruo
@@ -64,10 +57,10 @@ public class GameManager : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-        Player_HP -= damage;
-        if (Player_HP <= 0)
+        Player.playerInstance.player_HP -= damage;
+        if (Player.playerInstance.player_HP  <= 0)
         {
-            Player_HP = 0;
+            Player.playerInstance.player_HP  = 0;
             PlayerDeath();
         }
     }

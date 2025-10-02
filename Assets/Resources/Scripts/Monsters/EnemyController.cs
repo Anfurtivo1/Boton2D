@@ -5,11 +5,11 @@ public class EnemyController : MonoBehaviour
     [Header("Datos para el enemigo")]
     public MonsterData Enemy_Data; //Dato del monstruo
     public GameObject Enemy_Target; //Mi jugador
-    public float Enemy_Base_Speed = 1f; //La velocidad base que llevará
+    public float Enemy_Base_Speed = 1f; //La velocidad base que llevarï¿½
 
     [Header("Para calcular")]
     private float Enemy_Current_Speed; //Para calcular su velocidad
-    private int Enemy_Current_HP; //La vida que tendrá actual el enemigo
+    private int Enemy_Current_HP; //La vida que tendrï¿½ actual el enemigo
 
     [Header("Referencia")]
     public GameManager gameManager; //Referencias
@@ -23,13 +23,13 @@ public class EnemyController : MonoBehaviour
         Enemy_Current_Speed = Enemy_Base_Speed * Enemy_Data.Monster_Speed;
         Enemy_Current_HP = Enemy_Data.Monster_HP;
 
-        GameObject GameManager = GameObject.FindWithTag("GameManager");
-
-        if (GameManager != null)
+        if (GameManager.Instance != null)
         {
-            gameManager = GameManager.GetComponent<GameManager>();
-            Debug.Log("GameManager encontrado y asignado.");
+            gameManager = GameManager.Instance;
+            //Debug.Log("GameManager encontrado y asignado.");
         }
+
+        
 
     }
 
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
 
         if (Enemy_Target != null)
         {
-            //La dirección
+            //La direcciï¿½n
             Vector3 direction = (Enemy_Target.transform.position - transform.position).normalized;
 
             //La velocidad
@@ -57,8 +57,8 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            //Recibe daño
-            TakeDamage(gameManager.Bullet_Damage);
+            //Recibe daï¿½o
+            TakeDamage(Player.playerInstance.bullet_Damage);
 
             //Y destruyo la bala
             Destroy(collision.gameObject);

@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    GameManager gameManager;
     [Header("Data")]
     public List<ItemShop> shopItems;   // ScriptableObject assets
     
     public List<MonsterData> Shop_Available_Monsters; // ScriptableObject assets
     public List<MonsterData> Shop_Bought_Monsters;
 
-    //int Player_Money;
+    int Player_Money;
 
     int Shop_Current_House_Slots;
 
@@ -30,6 +31,12 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.Instance != null)
+        {
+            gameManager = GameManager.Instance;
+            gameManager.Money_Amount = Player_Money;
+        }
+        
         FillShop();
     }
 
