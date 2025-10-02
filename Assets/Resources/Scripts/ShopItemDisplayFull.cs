@@ -8,6 +8,22 @@ public class ShopManager : MonoBehaviour
 {
     [Header("Data")]
     public List<ItemShop> shopItems;   // ScriptableObject assets
+    
+    public List<MonsterData> Shop_Available_Monsters; // ScriptableObject assets
+    public List<MonsterData> Shop_Bought_Monsters;
+
+    //int Player_Money;
+
+    int Shop_Current_House_Slots;
+
+    MonsterData Shop_Selected_Monster;
+
+    GameObject Shop_UI;
+
+    List<GameObject> Shop_UI_Monster_Slots;
+
+    //MonsterHouseManager Shop_MonsterHouseManager;
+    
 
     [Header("Slots (Prefabs in Scene)")]
     public List<GameObject> itemSlots; // The 4 prefabs in the UI

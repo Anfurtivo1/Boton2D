@@ -18,6 +18,7 @@ public class ShopItemDisplay : MonoBehaviour
     {
         if (myShopItem != null)
         {
+            
             itemName.text = myShopItem.itemName;
             itemPrice.text = myShopItem.itemPrice.ToString();
             itemSprite.sprite = myShopItem.itemSprite;

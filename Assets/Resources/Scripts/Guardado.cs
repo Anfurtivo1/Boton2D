@@ -16,6 +16,7 @@ public class Guardado : MonoBehaviour
         if (PlayerPrefs.HasKey("userFirstTimeExperience"))
         {
             retrievedUserFirstTimeExperience = PlayerPrefs.GetInt("retrievedUserFirstTimeExperience");
+            
 
         }
         else
