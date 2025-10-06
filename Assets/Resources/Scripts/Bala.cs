@@ -16,18 +16,19 @@ public class Bala : MonoBehaviour
         transform.position += moveDir * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Destroy(gameObject);
+    //}
 
 
-    // Si usas triggers en lugar de colisiones normales:
+    // Si usas triggers en lugar de colisiones normales: Para eliminarlo si se sale del area de juego
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("He sido destruido");
         Destroy(gameObject);
+        
     }
 
 }
