@@ -228,6 +228,18 @@ PrefabInstance:
       value: 362.1
       objectReference: {fileID: 0}
     - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -398,6 +410,18 @@ PrefabInstance:
     - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 362.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -801,6 +825,18 @@ PrefabInstance:
       value: 362.1
       objectReference: {fileID: 0}
     - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303265151171036560, guid: 96fb81ff17dae694cb6e192bd652b04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -965,7 +1001,7 @@ GameObject:
   - component: {fileID: 2067717264}
   - component: {fileID: 2067717266}
   - component: {fileID: 2067717263}
-  - component: {fileID: 2067717265}
+  - component: {fileID: 2067717267}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1033,32 +1069,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067717261}
   m_CullTransparentMesh: 1
---- !u!114 &2067717265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067717261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!114 &2067717266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,6 +1091,32 @@ MonoBehaviour:
   - {fileID: 1043364174}
   - {fileID: 579413173}
   - {fileID: 863911996}
+--- !u!114 &2067717267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067717261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: -200.26
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
