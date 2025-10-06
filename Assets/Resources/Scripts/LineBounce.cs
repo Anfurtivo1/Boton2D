@@ -12,8 +12,12 @@ public class LineBounce : MonoBehaviour
     public float length = 5f;       // Longitud de la línea
 
     [Header("Disparo")]
-    public GameObject projectilePrefab;  // Prefab del proyectil
-    public float projectileSpeed = 10f;  // Velocidad del proyectil
+    public Bala projectilePrefab;  // Prefab del proyectil
+    public float projectileSpeed = 40f;  // Velocidad del proyectil
+
+    Vector3 start;
+    Vector3 end;
+    Vector3 direction;
 
     private LineRenderer line;
     private float angle;
@@ -23,43 +27,48 @@ public class LineBounce : MonoBehaviour
     {
         line = GetComponent<LineRenderer>();
         line.positionCount = 2;
+
+        if (projectilePrefab != null)
+        {
+            //projectileSpeed = projectilePrefab.speed;
+        }
+
+
     }
 
     void Update()
     {
         // Movimiento oscilante del apuntado
         angle = Mathf.Sin(Time.time * speed) * amplitude;
-        Vector3 direction = Quaternion.Euler(0, 0, angle) * Vector3.up;
+        direction = Quaternion.Euler(0, 0, angle) * Vector3.up;
 
-        Vector3 start = transform.position;
-        Vector3 end = transform.position + direction * length;
+        start = transform.position;
+        end = transform.position + direction * length;
 
         line.SetPosition(0, start);
         line.SetPosition(1, end);
-
-        // Si se ha pulsado la acción Attack, dispara
-        if (attackPressed)
-        {
-            Shoot(direction, end);
-            attackPressed = false;
-        }
     }
 
-    private void PlayerInputOnActionTriggered(InputAction.CallbackContext context)
-    {
-        if(context.action.name == "Attack")
-        {
-            Debug.Log("Estoy en el primero");
-            OnAttack(context);
-        }
-    }
+    //private void PlayerInputOnActionTriggered(InputAction.CallbackContext context)
+    //{
+    //    if(context.action.name == "Attack")
+    //    {
+    //        Debug.Log("Estoy en el primero");
+    //        OnAttack(context);
+    //    }
+    //}
 
     // Este método será llamado automáticamente por PlayerInput si usas "Send Messages"
     // Debe llamarse exactamente igual que tu acción Input: "Attack"
     public void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("Estoy en el segundo");
-        attackPressed = true;
+
+        if (context.performed) // Solo cuando se presiona
+        {
+            Debug.Log("Estoy en el segundo");
+
+            Shoot(direction, end);
+        }
         // Si quieres, puedes detectar cuando se suelta con context.canceled
     }
 
@@ -67,7 +76,7 @@ public class LineBounce : MonoBehaviour
     {
         if (projectilePrefab == null) return;
 
-        GameObject projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        Bala projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
 
         if (rb != null)
@@ -76,7 +85,7 @@ public class LineBounce : MonoBehaviour
         }
 
         // Opcional: destruir el proyectil tras unos segundos
-        Destroy(projectile, 5f);
+        Destroy(projectile, 2f);
     }
 
 
