@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem; // Nuevo Input System
 
@@ -14,6 +15,7 @@ public class LineBounce : MonoBehaviour
     [Header("Disparo")]
     public Bala projectilePrefab;  // Prefab del proyectil
     public float projectileSpeed = 40f;  // Velocidad del proyectil
+    public float shootCooldown = 5f;     // Cooldown entre disparos en segundos
 
     Vector3 start;
     Vector3 end;
@@ -21,7 +23,8 @@ public class LineBounce : MonoBehaviour
 
     private LineRenderer line;
     private float angle;
-    private bool attackPressed = false;
+    private bool canShoot = true;
+
 
     void Start()
     {
@@ -63,11 +66,12 @@ public class LineBounce : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
 
-        if (context.performed) // Solo cuando se presiona
+        if (context.performed && canShoot) // Solo cuando se presiona
         {
-            Debug.Log("Estoy en el segundo");
-
+            Debug.Log("Entre en OnAttack");
+            canShoot = false;
             Shoot(direction, end);
+            StartCoroutine(ShootCooldown()); // Inicia cooldown
         }
         // Si quieres, puedes detectar cuando se suelta con context.canceled
     }
@@ -85,7 +89,14 @@ public class LineBounce : MonoBehaviour
         }
 
         // Opcional: destruir el proyectil tras unos segundos
-        Destroy(projectile, 2f);
+        //Destroy(projectile, 2f);
+    }
+
+    // Corutina para el cooldown
+    private IEnumerator ShootCooldown()
+    {
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
     }
 
 
