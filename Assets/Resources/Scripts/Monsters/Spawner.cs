@@ -10,6 +10,9 @@ public class Spawner : MonoBehaviour
     MonsterData[] All_Spawner_Monster_Posibility;
 
     float Spawn_Rate = 5f;
+    float Spawn_Rate_Changed = 5f;
+    float Time_To_Change = 15f;
+    float StopTime=5f;
 
     public GameObject prefabEnemigo;
 
@@ -35,6 +38,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ChangeSpawnRate();
         Spawn_Rate -= Time.deltaTime;
 
         //Debug.Log(" El tiempo es "+(int)Spawn_Rate);
@@ -53,15 +57,29 @@ public class Spawner : MonoBehaviour
                     Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility [i]);
                     Instantiate(prefabEnemigo, Spawner_Place_Posibility[posicionRandom].transform.position, Spawner_Place_Posibility[posicionRandom].transform.rotation);
 
-                    
+
 
                     ///Debug.Log("Se ha creado un enemigo en: "+ Spawner_Place_Posibility[posicionRandom]);
                     //Debug.Log("Spawner lista tiene: "+ Spawner_Monster_Posibility.Count);
+                    
                 }
             }
 
-            Spawn_Rate = 5f;
+            Spawn_Rate = Spawn_Rate_Changed;
+            Debug.Log("La spawn rate es: " + Spawn_Rate);
         }
 
+    }
+
+    public void ChangeSpawnRate() 
+    {
+        Time_To_Change -= Time.deltaTime;
+        if (Time_To_Change <= 0 && StopTime >= 1f) 
+        {
+            Spawn_Rate_Changed = Spawn_Rate_Changed - 0.2f;
+            Time_To_Change = 15f;
+            StopTime = Spawn_Rate_Changed;
+
+        }
     }
 }
