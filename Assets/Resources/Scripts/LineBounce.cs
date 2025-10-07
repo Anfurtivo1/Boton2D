@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem; // Nuevo Input System
+using UnityEngine.InputSystem;
+using UnityEngine.UI; // Nuevo Input System
 
 [RequireComponent(typeof(LineRenderer))]
 public class LineBounce : MonoBehaviour
@@ -15,7 +16,7 @@ public class LineBounce : MonoBehaviour
     [Header("Disparo")]
     public Bala projectilePrefab;  // Prefab del proyectil
     public float projectileSpeed = 40f;  // Velocidad del proyectil
-    public float shootCooldown = 5f;     // Cooldown entre disparos en segundos
+    public float shootCooldown = 2f;     // Cooldown entre disparos en segundos
 
     Vector3 start;
     Vector3 end;
@@ -24,6 +25,8 @@ public class LineBounce : MonoBehaviour
     private LineRenderer line;
     private float angle;
     private bool canShoot = true;
+
+    public Image progressBar;
 
 
     void Start()
@@ -41,6 +44,26 @@ public class LineBounce : MonoBehaviour
 
     void Update()
     {
+        if (!canShoot)
+        {
+        progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
+        Debug.Log("Estoy en el if negativo");
+        }
+
+        //if (canShoot)
+        //{
+        //    Debug.Log("Estoy dentro del if positivo");
+        //    if (progressBar.fillAmount >= 1)
+        //    {
+        //        canShoot = true;
+        //        progressBar.fillAmount = 0;
+        //        //proyectilGenerator.generateProyectil();
+        //        //src.clip = disparar;
+        //        //src.Play();
+        //    }
+        //}
+
+
         // Movimiento oscilante del apuntado
         angle = Mathf.Sin(Time.time * speed) * amplitude;
         direction = Quaternion.Euler(0, 0, angle) * Vector3.up;
@@ -68,6 +91,7 @@ public class LineBounce : MonoBehaviour
 
         if (context.performed && canShoot) // Solo cuando se presiona
         {
+            progressBar.fillAmount = 0;
             Debug.Log("Entre en OnAttack");
             canShoot = false;
             Shoot(direction, end);
@@ -87,9 +111,6 @@ public class LineBounce : MonoBehaviour
         {
             rb.linearVelocity = direction.normalized * projectileSpeed;
         }
-
-        // Opcional: destruir el proyectil tras unos segundos
-        //Destroy(projectile, 2f);
     }
 
     // Corutina para el cooldown
