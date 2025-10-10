@@ -7,32 +7,19 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] Spawner_Place_Posibility = new GameObject[4];
     List<MonsterData> Spawner_Monster_Posibility = new List<MonsterData>();
-    MonsterData[] All_Spawner_Monster_Posibility;
+    public MonsterData[] All_Spawner_Monster_Posibility;
 
     float Spawn_Rate = 5f;
     float Spawn_Rate_Changed = 5f;
     float Time_To_Change = 15f;
     float StopTime=5f;
 
-    public GameObject prefabEnemigo;
+    public GameObject[] prefabEnemigos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        All_Spawner_Monster_Posibility = new MonsterData[3];
-
-        MonsterData monster0 = new MonsterData();
-        MonsterData monster1 = new MonsterData();
-        MonsterData monster2 = new MonsterData();
-
-        All_Spawner_Monster_Posibility[0] = monster0;
-        All_Spawner_Monster_Posibility[1] = monster1;
-        All_Spawner_Monster_Posibility[2] = monster2;
-
-        All_Spawner_Monster_Posibility[0].Can_Spawn = false;
-        All_Spawner_Monster_Posibility[1].Can_Spawn = true;
-        All_Spawner_Monster_Posibility[2].Can_Spawn = false;
+        Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[0]);
     }
 
     // Update is called once per frame
@@ -52,29 +39,32 @@ public class Spawner : MonoBehaviour
                 {
                     int posicionRandom = Random.Range(0, Spawner_Place_Posibility.Length);
 
-                    Debug.Log("La posicion random es: "+ posicionRandom);
+                    int monstruoRandom = Random.Range(0,Spawner_Monster_Posibility.Count);
 
-                    Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility [i]);
-                    Instantiate(prefabEnemigo, Spawner_Place_Posibility[posicionRandom].transform.position, Spawner_Place_Posibility[posicionRandom].transform.rotation);
+                    Debug.Log("La posicion random es: " + posicionRandom);
 
+                    Debug.Log("El monstruo random tiene el id: " + monstruoRandom);
 
+                    Instantiate(prefabEnemigos[monstruoRandom], Spawner_Place_Posibility[posicionRandom].transform.position, Spawner_Place_Posibility[posicionRandom].transform.rotation);
+
+                    ComprobarValores();
 
                     ///Debug.Log("Se ha creado un enemigo en: "+ Spawner_Place_Posibility[posicionRandom]);
                     //Debug.Log("Spawner lista tiene: "+ Spawner_Monster_Posibility.Count);
-                    
+
                 }
             }
 
             Spawn_Rate = Spawn_Rate_Changed;
-            Debug.Log("La spawn rate es: " + Spawn_Rate);
+            //Debug.Log("La spawn rate es: " + Spawn_Rate);
         }
 
     }
 
-    public void ChangeSpawnRate() 
+    public void ChangeSpawnRate()
     {
         Time_To_Change -= Time.deltaTime;
-        if (Time_To_Change <= 0 && StopTime >= 1f) 
+        if (Time_To_Change <= 0 && StopTime >= 1f)
         {
             Spawn_Rate_Changed = Spawn_Rate_Changed - 0.2f;
             Time_To_Change = 15f;
@@ -82,4 +72,70 @@ public class Spawner : MonoBehaviour
 
         }
     }
+    
+    public void ComprobarValores()
+    {
+        foreach (var index in GameManager.Instance.MonsterKills)
+        {
+            int id = index.Key;
+            int valor = index.Value;
+            
+            if (valor == 25 && index.Key == 1)
+            {
+                MonsterData monster = All_Spawner_Monster_Posibility[id];
+
+                Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[id]);
+                Debug.Log($"El monstruo {monster.name} alcanzó {valor} y se añadió a la lista");
+
+            }
+
+            if (valor == 30 && index.Key == 2)
+            {
+                MonsterData monster = All_Spawner_Monster_Posibility[id];
+
+                Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[id]);
+                Debug.Log($"El monstruo {monster.name} alcanzó {valor} y se añadió a la lista");
+
+            }
+
+            if (valor == 50 && index.Key == 3)
+            {
+                MonsterData monster = All_Spawner_Monster_Posibility[id];
+
+                Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[id]);
+                Debug.Log($"El monstruo {monster.name} alcanzó {valor} y se añadió a la lista");
+
+            }
+
+            if (valor == 75 && index.Key == 4)
+            {
+                MonsterData monster = All_Spawner_Monster_Posibility[id];
+
+                Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[id]);
+                Debug.Log($"El monstruo {monster.name} alcanzó {valor} y se añadió a la lista");
+
+            }
+
+            if (valor == 150 && index.Key == 5)
+            {
+                MonsterData monster = All_Spawner_Monster_Posibility[id];
+
+                Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[id]);
+                Debug.Log($"El monstruo {monster.name} alcanzó {valor} y se añadió a la lista");
+
+            }
+
+            if (valor == 250 && index.Key == 6)
+            {
+                MonsterData monster = All_Spawner_Monster_Posibility[id];
+
+                Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[id]);
+                Debug.Log($"El monstruo {monster.name} alcanzó {valor} y se añadió a la lista");
+
+            }
+            
+        }
+    }
+
+
 }

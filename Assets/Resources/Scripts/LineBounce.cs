@@ -47,7 +47,7 @@ public class LineBounce : MonoBehaviour
         if (!canShoot)
         {
         progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
-        Debug.Log("Estoy en el if negativo");
+//        Debug.Log("Estoy en el if negativo");
         }
 
         //if (canShoot)
