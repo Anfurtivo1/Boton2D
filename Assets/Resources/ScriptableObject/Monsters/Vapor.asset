@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Vapor
   m_EditorClassIdentifier: 
   Monster_ID: 3
+  Monster_Name: 
   Amount_Monster_NeedKill: 100
-  Is_In_Monster_House: 0
-  Can_Monster_House: 0
-  Advantage_Type: 0
-  Advantage_Value: 0
-  Can_Spawn: 0
+  Can_Spawn: 1
+  Other_Monster_Kill: {fileID: 11400000, guid: 2b73062defd15b12da11e3c6acec3d76, type: 2}
+  Other_Monster_Kill_Amount: 10
   Monster_HP: 3
-  Monster_Speed: 0.25
+  Monster_Speed: 1
+  Monster_LifeTime: 20
   Money_Amount_Monster: 50
   Cost_Monster: 10000
   Monster_Sprite: {fileID: 0}
+  Advantage_Type: 0
+  Advantage_Value: 0
+  Can_Monster_House: 0
+  Is_In_Monster_House: 0
   Monster_Rarity: 0
   Monster_Description: 
-  Other_Monster_Kill: {fileID: 11400000, guid: 2b73062defd15b12da11e3c6acec3d76, type: 2}
-  Other_Monster_Kill_Amount: 30
-  Monster_Prefab_Evil: {fileID: 0}
+  Monster_Prefab_Evil: {fileID: 7168912847083969558, guid: 628ad921e45a0860581bf1f83f98b551, type: 3}
   Monster_Prefab_Good: {fileID: 0}

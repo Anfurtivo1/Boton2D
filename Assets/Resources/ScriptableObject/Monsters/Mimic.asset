@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Mimic
   m_EditorClassIdentifier: 
   Monster_ID: 5
+  Monster_Name: 
   Amount_Monster_NeedKill: 300
-  Is_In_Monster_House: 0
-  Can_Monster_House: 0
-  Advantage_Type: 0
-  Advantage_Value: 0
   Can_Spawn: 0
+  Other_Monster_Kill: {fileID: 11400000, guid: 4713bbce4c31fea8a8511eec65c6bc43, type: 2}
+  Other_Monster_Kill_Amount: 75
   Monster_HP: 2
   Monster_Speed: 0.5
+  Monster_LifeTime: 20
   Money_Amount_Monster: 25
   Cost_Monster: 50000
   Monster_Sprite: {fileID: 0}
+  Advantage_Type: 0
+  Advantage_Value: 0
+  Can_Monster_House: 0
+  Is_In_Monster_House: 0
   Monster_Rarity: 0
   Monster_Description: 
-  Other_Monster_Kill: {fileID: 11400000, guid: 4713bbce4c31fea8a8511eec65c6bc43, type: 2}
-  Other_Monster_Kill_Amount: 75
-  Monster_Prefab_Evil: {fileID: 0}
+  Monster_Prefab_Evil: {fileID: 7168912847083969558, guid: 77589f8eb6697b846a60c5ca1ded6f0a, type: 3}
   Monster_Prefab_Good: {fileID: 0}

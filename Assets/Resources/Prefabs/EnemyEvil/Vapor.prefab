@@ -101,10 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be48776aa141d345a394f1ad36cff7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Data: {fileID: 11400000, guid: 6f2dcac179e34464a94131834107ae52, type: 2}
-  Enemy_Target: {fileID: 0}
-  Enemy_Base_Speed: 0.1
-  gameManager: {fileID: 0}
+  Enemy_Data: {fileID: 11400000, guid: 4cce3d3455a5cd0c59bc3413efb79ff0, type: 2}
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  Enemy_Base_Speed: 1
 --- !u!58 &3399726984080443439
 CircleCollider2D:
   m_ObjectHideFlags: 0

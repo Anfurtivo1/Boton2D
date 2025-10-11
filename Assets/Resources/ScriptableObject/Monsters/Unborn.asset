@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Unborn
   m_EditorClassIdentifier: 
   Monster_ID: 1
-  Amount_Monster_NeedKill: 0
-  Is_In_Monster_House: 0
-  Can_Monster_House: 0
-  Advantage_Type: 0
-  Advantage_Value: 0
+  Monster_Name: 
+  Amount_Monster_NeedKill: 10
   Can_Spawn: 1
+  Other_Monster_Kill: {fileID: 0}
+  Other_Monster_Kill_Amount: 0
   Monster_HP: 1
-  Monster_Speed: 0.5
+  Monster_Speed: 0.25
+  Monster_LifeTime: 20
   Money_Amount_Monster: 10
   Cost_Monster: 1000
   Monster_Sprite: {fileID: 0}
+  Advantage_Type: 0
+  Advantage_Value: 0
+  Can_Monster_House: 0
+  Is_In_Monster_House: 0
   Monster_Rarity: 0
   Monster_Description: 
-  Other_Monster_Kill: {fileID: 0}
-  Other_Monster_Kill_Amount: 0
-  Monster_Prefab_Evil: {fileID: 0}
+  Monster_Prefab_Evil: {fileID: 7168912847083969558, guid: 0c1a6df0e0d9d0b428b17238a30f2557, type: 3}
   Monster_Prefab_Good: {fileID: 0}

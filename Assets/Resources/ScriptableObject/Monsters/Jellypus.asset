@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Jellypus
   m_EditorClassIdentifier: 
   Monster_ID: 4
+  Monster_Name: 
   Amount_Monster_NeedKill: 150
-  Is_In_Monster_House: 0
-  Can_Monster_House: 0
-  Advantage_Type: 0
-  Advantage_Value: 0
   Can_Spawn: 0
+  Other_Monster_Kill: {fileID: 11400000, guid: 4cce3d3455a5cd0c59bc3413efb79ff0, type: 2}
+  Other_Monster_Kill_Amount: 50
   Monster_HP: 1
   Monster_Speed: 1
+  Monster_LifeTime: 20
   Money_Amount_Monster: 15
   Cost_Monster: 25000
   Monster_Sprite: {fileID: 0}
+  Advantage_Type: 0
+  Advantage_Value: 0
+  Can_Monster_House: 0
+  Is_In_Monster_House: 0
   Monster_Rarity: 0
   Monster_Description: 
-  Other_Monster_Kill: {fileID: 11400000, guid: 4cce3d3455a5cd0c59bc3413efb79ff0, type: 2}
-  Other_Monster_Kill_Amount: 50
-  Monster_Prefab_Evil: {fileID: 0}
+  Monster_Prefab_Evil: {fileID: 7168912847083969558, guid: 09c9a2a5f4ed90831a86f93978fe0cf0, type: 3}
   Monster_Prefab_Good: {fileID: 0}
