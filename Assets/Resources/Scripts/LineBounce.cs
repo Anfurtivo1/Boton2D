@@ -28,41 +28,31 @@ public class LineBounce : MonoBehaviour
 
     public Image progressBar;
 
-
     void Start()
     {
         line = GetComponent<LineRenderer>();
         line.positionCount = 2;
 
-        if (projectilePrefab != null)
-        {
-            //projectileSpeed = projectilePrefab.speed;
-        }
+        // 🔹 Cambiamos el material por uno que soporte transparencia
+        line.material = new Material(Shader.Find("Sprites/Default"));
 
+        // 🔹 Color semitransparente
+        Color semiTransparent = new Color(1f, 1f, 1f, 0.1f);
+        line.startColor = semiTransparent;
+        line.endColor = semiTransparent;
 
+        // 🔹 (Opcional) ajustar grosor de la línea
+        line.startWidth = 0.25f;
+        line.endWidth = 0.25f;
     }
+
 
     void Update()
     {
         if (!canShoot)
         {
-        progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
-//        Debug.Log("Estoy en el if negativo");
+            progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
         }
-
-        //if (canShoot)
-        //{
-        //    Debug.Log("Estoy dentro del if positivo");
-        //    if (progressBar.fillAmount >= 1)
-        //    {
-        //        canShoot = true;
-        //        progressBar.fillAmount = 0;
-        //        //proyectilGenerator.generateProyectil();
-        //        //src.clip = disparar;
-        //        //src.Play();
-        //    }
-        //}
-
 
         // Movimiento oscilante del apuntado
         angle = Mathf.Sin(Time.time * speed) * amplitude;
@@ -71,9 +61,22 @@ public class LineBounce : MonoBehaviour
         start = transform.position;
         end = transform.position + direction * length;
 
+        // 🔹 Hacer raycast para detectar colisión
+        RaycastHit2D hit = Physics2D.Raycast(start, direction, length);
+
+        if (hit.collider != null)
+        {
+            // Si choca, la línea se corta justo en el punto de impacto
+            end = hit.point;
+        }
+
         line.SetPosition(0, start);
         line.SetPosition(1, end);
+
+        // 🔹 (Opcional) Dibujar el raycast en modo debug
+        //Debug.DrawRay(start, direction * length, Color.red);
     }
+
 
     //private void PlayerInputOnActionTriggered(InputAction.CallbackContext context)
     //{
@@ -94,7 +97,10 @@ public class LineBounce : MonoBehaviour
             progressBar.fillAmount = 0;
             Debug.Log("Entre en OnAttack");
             canShoot = false;
-            Shoot(direction, end);
+
+            Vector3 fixedPoint = new Vector3(-0.05f, -4.35f, 0f); // Tu punto exacto
+
+            Shoot(direction, fixedPoint);
             StartCoroutine(ShootCooldown()); // Inicia cooldown
         }
         // Si quieres, puedes detectar cuando se suelta con context.canceled
