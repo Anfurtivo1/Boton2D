@@ -64,6 +64,11 @@ public class Spawner : MonoBehaviour
                     spawnPoint.transform.rotation
                 );
 
+
+                // 🔹 Añade automáticamente el fade in
+                MonsterFadeIn fade = newEnemy.AddComponent<MonsterFadeIn>();
+                fade.fadeDuration = 1.2f; // o el tiempo que quieras
+
                 //Le pasamos datos al enemy controller
                 EnemyController enemyController = newEnemy.GetComponent<EnemyController>();
                 if (enemyController != null)

@@ -13,8 +13,16 @@ MonoBehaviour:
   m_Name: LocalizationTableUI Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: LocalizationTableUI
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 3497ad0b15b626b458ed7fd0f378e480
+  m_Entries:
+  - m_Id: 63083216896
+    m_Key: BotonJugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171908628480
+    m_Key: Salir
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

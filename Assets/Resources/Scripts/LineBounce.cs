@@ -94,7 +94,10 @@ public class LineBounce : MonoBehaviour
             progressBar.fillAmount = 0;
             Debug.Log("Entre en OnAttack");
             canShoot = false;
-            Shoot(direction, end);
+
+            Vector3 fixedPoint = new Vector3(-0.05f, -4.35f, 0f); // Tu punto exacto
+
+            Shoot(direction, fixedPoint);
             StartCoroutine(ShootCooldown()); // Inicia cooldown
         }
         // Si quieres, puedes detectar cuando se suelta con context.canceled
