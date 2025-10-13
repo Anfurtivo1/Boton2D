@@ -28,19 +28,24 @@ public class LineBounce : MonoBehaviour
 
     public Image progressBar;
 
-
     void Start()
     {
         line = GetComponent<LineRenderer>();
         line.positionCount = 2;
 
-        if (projectilePrefab != null)
-        {
-            //projectileSpeed = projectilePrefab.speed;
-        }
+        // 🔹 Cambiamos el material por uno que soporte transparencia
+        line.material = new Material(Shader.Find("Sprites/Default"));
 
+        // 🔹 Color semitransparente
+        Color semiTransparent = new Color(1f, 1f, 1f, 0.1f);
+        line.startColor = semiTransparent;
+        line.endColor = semiTransparent;
 
+        // 🔹 (Opcional) ajustar grosor de la línea
+        line.startWidth = 0.25f;
+        line.endWidth = 0.25f;
     }
+
 
     void Update()
     {
