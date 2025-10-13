@@ -3,17 +3,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ShopItemDisplayFull : MonoBehaviour
 {
     GameManager gameManager;
     [Header("Data")]
     public List<ItemShop> shopItems;   // ScriptableObject assets
-    
+
     public List<MonsterData> Shop_Available_Monsters; // ScriptableObject assets
     public List<MonsterData> Shop_Bought_Monsters;
 
     int Player_Money;
+    public int maMoni;
+    public TextMeshProUGUI maMoniText;
 
     int Shop_Current_House_Slots;
 
@@ -24,7 +27,7 @@ public class ShopItemDisplayFull : MonoBehaviour
     List<GameObject> Shop_UI_Monster_Slots;
 
     //MonsterHouseManager Shop_MonsterHouseManager;
-    
+
 
     [Header("Slots (Prefabs in Scene)")]
     public List<GameObject> itemSlots; // The 4 prefabs in the UI
@@ -36,8 +39,17 @@ public class ShopItemDisplayFull : MonoBehaviour
             gameManager = GameManager.Instance;
             gameManager.Money_Amount = Player_Money;
         }
-        
+
+        else
+            Player_Money = maMoni;
+
         FillShop();
+        InvokeRepeating(nameof(MaMoniGrousEvriSecond), 0, 0.01f);
+    }
+
+    private void Update()
+    {
+        
     }
 
     void FillShop()
@@ -48,10 +60,10 @@ public class ShopItemDisplayFull : MonoBehaviour
             GameObject slot = itemSlots[i];
 
             // Assuming each prefab has these components in children:
-            TextMeshProUGUI nameText = slot.transform.GetChild(0).gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            Image iconImage = slot.transform.GetChild(0).gameObject.transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
-            TextMeshProUGUI priceText = slot.transform.GetChild(0).gameObject.transform.GetChild(0).transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI descriptionText = slot.transform.GetChild(0).gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI nameText = slot.GetComponent<IAmBuyable>().itemName.GetComponent<TextMeshProUGUI>();
+            Image iconImage = slot.GetComponent<IAmBuyable>().itemIcon.GetComponent<Image>();
+            TextMeshProUGUI priceText = slot.GetComponent<IAmBuyable>().itemPrice.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI descriptionText = slot.GetComponent<IAmBuyable>().itemDescription.GetComponent<TextMeshProUGUI>();
 
             // Fill with data
             nameText.text = item.itemName;
@@ -59,6 +71,8 @@ public class ShopItemDisplayFull : MonoBehaviour
             iconImage.sprite = item.itemSprite;
             descriptionText.text = item.itemDescription;
         }
+
+        
     }
 
     public void BuyObject()
@@ -66,5 +80,10 @@ public class ShopItemDisplayFull : MonoBehaviour
 
     }
 
+    public void MaMoniGrousEvriSecond()
+    {
+        maMoni++;
+        maMoniText.text = "$" + maMoni.ToString();
+    }
 
 }

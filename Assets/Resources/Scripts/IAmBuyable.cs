@@ -2,25 +2,34 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IAmBuyable : MonoBehaviour
 {
     GameManager gameManager;
-    public GameObject priceTextGameObject;
-    public string myPriceText;
-    int myPriceInt;
-    int Player_Money;
-    public GameObject cellImage;
+    public string myPriceString;
+    public int myPriceInt;
+    public int Player_Money;
+    public GameObject itemIcon;
+    public GameObject bG_Image;
+    public GameObject itemName;
+    public GameObject itemPrice;
+    public GameObject itemDescription;
 
     void Start()
     {
-        Int32.TryParse(priceTextGameObject.GetComponent<TextMeshProUGUI>().text, out myPriceInt);
-
+        // Eliminar el símbolo $ y cualquier espacio
+        Invoke(nameof(TellMeYourPrice), 0.1f);
 
         if (GameManager.Instance != null)
         {
             gameManager = GameManager.Instance;
             gameManager.Money_Amount = Player_Money;
+        }
+
+        else
+        {
+            Player_Money = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
         }
     }
 
@@ -32,14 +41,22 @@ public class IAmBuyable : MonoBehaviour
 
     public void CanThePlayerBuyMe()
     {
-        if(myPriceInt >= Player_Money)
+        Player_Money = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
+
+        if (myPriceInt >= Player_Money)
         {
-            cellImage.SetActive(false);
+            itemIcon.GetComponent<Image>().color = Color.black;
         }
 
         else
         {
-            cellImage.SetActive(true);
+            itemIcon.GetComponent<Image>().color = Color.white;
         }
+    }
+
+    public void TellMeYourPrice()
+    {
+        myPriceString = itemPrice.GetComponent<TextMeshProUGUI>().text.Replace("$", "").Trim();
+        int.TryParse(myPriceString, out myPriceInt);
     }
 }
