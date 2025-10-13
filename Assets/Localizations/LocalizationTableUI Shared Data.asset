@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LocalizationTableUI Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: LocalizationTableUI
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
+  m_TableCollectionNameGuidString: 3497ad0b15b626b458ed7fd0f378e480
   m_Entries: []
   m_Metadata:
     m_Items: []
