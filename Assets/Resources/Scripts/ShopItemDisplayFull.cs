@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ShopManager : MonoBehaviour
+public class ShopItemDisplayFull : MonoBehaviour
 {
     GameManager gameManager;
     [Header("Data")]
@@ -60,4 +60,11 @@ public class ShopManager : MonoBehaviour
             descriptionText.text = item.itemDescription;
         }
     }
+
+    public void BuyObject()
+    {
+
+    }
+
+
 }
