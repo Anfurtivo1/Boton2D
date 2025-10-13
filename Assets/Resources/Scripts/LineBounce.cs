@@ -51,23 +51,8 @@ public class LineBounce : MonoBehaviour
     {
         if (!canShoot)
         {
-        progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
-//        Debug.Log("Estoy en el if negativo");
+            progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
         }
-
-        //if (canShoot)
-        //{
-        //    Debug.Log("Estoy dentro del if positivo");
-        //    if (progressBar.fillAmount >= 1)
-        //    {
-        //        canShoot = true;
-        //        progressBar.fillAmount = 0;
-        //        //proyectilGenerator.generateProyectil();
-        //        //src.clip = disparar;
-        //        //src.Play();
-        //    }
-        //}
-
 
         // Movimiento oscilante del apuntado
         angle = Mathf.Sin(Time.time * speed) * amplitude;
@@ -76,9 +61,22 @@ public class LineBounce : MonoBehaviour
         start = transform.position;
         end = transform.position + direction * length;
 
+        // 🔹 Hacer raycast para detectar colisión
+        RaycastHit2D hit = Physics2D.Raycast(start, direction, length);
+
+        if (hit.collider != null)
+        {
+            // Si choca, la línea se corta justo en el punto de impacto
+            end = hit.point;
+        }
+
         line.SetPosition(0, start);
         line.SetPosition(1, end);
+
+        // 🔹 (Opcional) Dibujar el raycast en modo debug
+        //Debug.DrawRay(start, direction * length, Color.red);
     }
+
 
     //private void PlayerInputOnActionTriggered(InputAction.CallbackContext context)
     //{

@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplitude: 45
-  speed: 0.5
+  speed: 2
   length: 30
   projectilePrefab: {fileID: 1673314699647059919, guid: 3f393cf751cb18d49a517f6ecc56f051, type: 3}
   projectileSpeed: 10
