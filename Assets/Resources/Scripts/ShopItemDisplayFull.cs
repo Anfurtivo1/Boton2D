@@ -63,16 +63,16 @@ public class ShopItemDisplayFull : MonoBehaviour
             TextMeshProUGUI nameText = slot.GetComponent<IAmBuyable>().itemName.GetComponent<TextMeshProUGUI>();
             Image iconImage = slot.GetComponent<IAmBuyable>().itemIcon.GetComponent<Image>();
             TextMeshProUGUI priceText = slot.GetComponent<IAmBuyable>().itemPrice.GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI descriptionText = slot.GetComponent<IAmBuyable>().itemDescription.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI effectDescriptionText = slot.GetComponent<IAmBuyable>().itemLoreDescription.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI loreDescriptionText = slot.GetComponent<IAmBuyable>().itemLoreDescription.GetComponent<TextMeshProUGUI>();
 
             // Fill with data
             nameText.text = item.itemName;
             priceText.text = "$" + item.itemPrice;
             iconImage.sprite = item.itemSprite;
-            descriptionText.text = item.itemDescription;
-        }
-
-        
+            effectDescriptionText.text = item.itemEffectDescription;
+            loreDescriptionText.text = item.itemLoreDescription;
+        }        
     }
 
     public void BuyObject()

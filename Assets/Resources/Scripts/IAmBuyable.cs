@@ -14,7 +14,8 @@ public class IAmBuyable : MonoBehaviour
     public GameObject bG_Image;
     public GameObject itemName;
     public GameObject itemPrice;
-    public GameObject itemDescription;
+    public GameObject itemEffectDescription;
+    public GameObject itemLoreDescription;
 
     void Start()
     {
