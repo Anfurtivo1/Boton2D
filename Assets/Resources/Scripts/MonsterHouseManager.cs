@@ -4,18 +4,18 @@ using UnityEngine;
 public class MonsterHouseManager : MonoBehaviour
 {
 
-    List<MonsterData> House_Current_Monsters;
-    int House_Max_Slots;
+    public List<MonsterData> House_Current_Monsters;
+    public int House_Max_Slots;
 
-    List<GameObject> House_Monster_Prefabs;
+    public List<GameObject> House_Monster_Prefabs;
 
-    Player House_Player;
+    public Player House_Player;
 
-    Dictionary<AdvantageType, float> House_Active_Advantages;
+    public Dictionary<AdvantageType, float> House_Active_Advantages;
 
-    GameManager House_GameManager;
+    public GameManager House_GameManager;
 
-    GameObject House_UI;
+    public GameObject House_UI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
