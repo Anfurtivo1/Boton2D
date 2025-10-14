@@ -7,5 +7,6 @@ public class ItemShop : ScriptableObject
     public int itemPrice;
     public string itemName;
     public Sprite itemSprite;
-    public string itemDescription;
+    public string itemEffectDescription;
+    public string itemLoreDescription;
 }
