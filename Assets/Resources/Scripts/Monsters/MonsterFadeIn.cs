@@ -10,7 +10,7 @@ public class MonsterFadeIn : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Collider2D col;
-    private bool fading = false;
+    //private bool fading = false;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class MonsterFadeIn : MonoBehaviour
         // Si el enemigo tiene una IA o script de movimiento, desactívalo temporalmente (opcional)
         ToggleMovement(false);
 
-        fading = true;
+        //fading = true;
         StartCoroutine(FadeInCoroutine());
     }
 
@@ -57,7 +57,7 @@ public class MonsterFadeIn : MonoBehaviour
             col.enabled = true;
 
         ToggleMovement(true);
-        fading = false;
+        //fading = false;
     }
 
     private void ToggleMovement(bool enable)
