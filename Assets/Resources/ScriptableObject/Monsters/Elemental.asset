@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Elemental
   m_EditorClassIdentifier: 
   Monster_ID: 2
-  Monster_Name: 
+  Monster_Name: Elemental
   Amount_Monster_NeedKill: 60
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: 76a0fdfb7103d1e42aa9e29de15de7ee, type: 2}

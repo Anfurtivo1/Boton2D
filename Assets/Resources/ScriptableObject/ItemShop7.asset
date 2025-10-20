@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c90d4349725f664594ba5f6ae33b0db, type: 3}
-  m_Name: ItemShop1
+  m_Name: ItemShop7
   m_EditorClassIdentifier: 
-  monsterNeededDeaths: 50
+  monsterNeededDeaths: 750
   itemBought: 0
-  itemPrice: 1000
-  itemName: Unborn
+  itemPrice: 500000
+  itemName: Teratoma
   itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
-  itemEffectDescription: +2 Sashimi
-  itemLoreDescription: Algunos confundieron su llegada con el enviado de un dios.
-    En cierto modo no se equivocaban.
+  itemEffectDescription: +2 La Loles
+  itemLoreDescription: "Su punto d\xE9bil es el ojo, todo lo dem\xE1s es su punto
+    fuerte. Suerte luchando contra \xE9l."

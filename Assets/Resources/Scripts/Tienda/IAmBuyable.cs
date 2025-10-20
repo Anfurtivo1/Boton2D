@@ -10,17 +10,24 @@ public class IAmBuyable : MonoBehaviour
     public string myPriceString;
     public int myPriceInt;
     public int Player_Money;
+    public int enemyTypeKills;
+    public int enemyTypeKillsNeeded;
     public GameObject itemIcon;
-    public GameObject bG_Image;
+    public GameObject bG_Image_Front;
+    public GameObject bG_Image_Back;
     public GameObject itemName;
     public GameObject itemPrice;
     public GameObject itemEffectDescription;
     public GameObject itemLoreDescription;
+    public GameObject itemDeathCount;
+    public Sprite buyableUp;
+    public Sprite buyableDown;
 
     void Start()
     {
         // Eliminar el símbolo $ y cualquier espacio
-        Invoke(nameof(TellMeYourPrice), 0.1f);
+        Invoke(nameof(TellMeYourPriceAndDeaths), 0.05f);
+
 
         if (GameManager.Instance != null)
         {
@@ -31,33 +38,46 @@ public class IAmBuyable : MonoBehaviour
         else
         {
             Player_Money = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
+            enemyTypeKills = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        CanThePlayerBuyMe();
+
     }
 
     public void CanThePlayerBuyMe()
     {
         Player_Money = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
+        enemyTypeKills = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
 
-        if (myPriceInt >= Player_Money)
+        if (enemyTypeKills >= enemyTypeKillsNeeded)
         {
-            itemIcon.GetComponent<Image>().color = Color.black;
-        }
+            bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
+            bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
 
-        else
-        {
-            itemIcon.GetComponent<Image>().color = Color.white;
+            if (Player_Money >= myPriceInt)
+            {
+                itemIcon.GetComponent<Image>().color = Color.white;
+                gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
+            }
+
+            else
+            {
+                itemIcon.GetComponent<Image>().color = Color.black;
+                gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
+            }
         }
     }
 
-    public void TellMeYourPrice()
+    public void TellMeYourPriceAndDeaths()
     {
         myPriceString = itemPrice.GetComponent<TextMeshProUGUI>().text.Replace("$", "").Trim();
         int.TryParse(myPriceString, out myPriceInt);
+        int.TryParse(itemDeathCount.GetComponent<TextMeshProUGUI>().text, out enemyTypeKillsNeeded);
+        CanThePlayerBuyMe();
     }
 }
+

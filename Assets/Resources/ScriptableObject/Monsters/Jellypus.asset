@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jellypus
   m_EditorClassIdentifier: 
   Monster_ID: 4
-  Monster_Name: 
+  Monster_Name: Jellypus
   Amount_Monster_NeedKill: 150
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: 4cce3d3455a5cd0c59bc3413efb79ff0, type: 2}

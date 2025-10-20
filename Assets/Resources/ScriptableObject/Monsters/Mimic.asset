@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mimic
   m_EditorClassIdentifier: 
   Monster_ID: 5
-  Monster_Name: 
+  Monster_Name: Mimic
   Amount_Monster_NeedKill: 300
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: 4713bbce4c31fea8a8511eec65c6bc43, type: 2}

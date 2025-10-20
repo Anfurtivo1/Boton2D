@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Siren
   m_EditorClassIdentifier: 
   Monster_ID: 6
-  Monster_Name: 
+  Monster_Name: Siren
   Amount_Monster_NeedKill: 500
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: b6ba4cbb8f78709a98860c9fdd7125a7, type: 2}

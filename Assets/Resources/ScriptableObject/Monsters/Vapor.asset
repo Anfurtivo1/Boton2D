@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vapor
   m_EditorClassIdentifier: 
   Monster_ID: 3
-  Monster_Name: 
+  Monster_Name: Vapor
   Amount_Monster_NeedKill: 100
   Can_Spawn: 1
   Other_Monster_Kill: {fileID: 11400000, guid: 2b73062defd15b12da11e3c6acec3d76, type: 2}

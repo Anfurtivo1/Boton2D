@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Unborn
   m_EditorClassIdentifier: 
   Monster_ID: 1
-  Monster_Name: 
+  Monster_Name: Unborn
   Amount_Monster_NeedKill: 10
   Can_Spawn: 1
   Other_Monster_Kill: {fileID: 0}

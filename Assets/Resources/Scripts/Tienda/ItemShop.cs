@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemShop", menuName = "Shop/ItemShop")]
 public class ItemShop : ScriptableObject
 {
+    public int monsterNeededDeaths;
     public bool itemBought;
     public int itemPrice;
     public string itemName;
