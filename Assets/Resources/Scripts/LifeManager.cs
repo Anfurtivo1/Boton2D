@@ -56,6 +56,11 @@ public class LifeManager : MonoBehaviour
         return currentLives > 0;
     }
 
+    public void VolverTiempo()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void LoseLife()
     {
         if (currentLives <= 0)

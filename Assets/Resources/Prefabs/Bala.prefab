@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8517866425794437966}
   - component: {fileID: 1673314699647059919}
   - component: {fileID: 7804147188019496357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bala
   m_TagString: Bullet
   m_Icon: {fileID: 0}
