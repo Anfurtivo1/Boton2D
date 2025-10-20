@@ -8,7 +8,7 @@ public class LifeManager : MonoBehaviour
 {
     [Header("Vidas")]
     public int maxLives = 3;
-    private int currentLives;
+    public int currentLives;
 
     [Header("Sprites de vidas")]
     public Image[] lifeImages; 

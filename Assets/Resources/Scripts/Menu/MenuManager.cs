@@ -30,10 +30,18 @@ public class MenuManager : MonoBehaviour
     public GameObject canvasShop;
     public GameObject canvasPecera;
 
+    [Header("Para saber si puedo jugar")]
+    public LifeManager lifeManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
+            if (lifeManager != null && !lifeManager.HasLives())
+            {
+                Debug.Log("No puedes jugar, no tienes vidas disponibles.");
+                return; 
+            }
             if (gameObject.CompareTag("PlayButton"))
             {
                 foreach (var obj in HideMenu)
