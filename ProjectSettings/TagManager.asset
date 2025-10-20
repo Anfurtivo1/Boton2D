@@ -7,6 +7,10 @@ TagManager:
   - GameManager
   - FInal
   - Bullet
+  - ShopManager
+  - PlayButton
+  - ShopButton
+  - PeceraButton
   layers:
   - Default
   - TransparentFX

@@ -36,6 +36,11 @@ public class Spawner : MonoBehaviour
                 Spawner_Monster_Posibility.Add(All_Spawner_Monster_Posibility[0]);
         }
 
+        
+    }
+
+    public void StartGame() 
+    {
         StartCoroutine(SpawnLoop());
     }
 
@@ -63,6 +68,11 @@ public class Spawner : MonoBehaviour
                     spawnPoint.transform.position,
                     spawnPoint.transform.rotation
                 );
+
+
+                //Añade automáticamente el fade in
+                MonsterFadeIn fade = newEnemy.AddComponent<MonsterFadeIn>();
+                fade.fadeDuration = 1.2f; // o el tiempo que quieras
 
                 //Le pasamos datos al enemy controller
                 EnemyController enemyController = newEnemy.GetComponent<EnemyController>();
