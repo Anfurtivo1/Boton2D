@@ -154,18 +154,20 @@ public class LifeManager : MonoBehaviour
     }
 
     //Llamar desde botón "Cerrar anuncio" en fakeAdPopup
-    public void OnCloseFakeAdButton()
+    public void OnCloseFakeAdButton()//Vuelva a disparar
     {
+        LineBounce.lineBounceInstance.isOnMenus = false;
         if (fakeAdPopup != null)
             fakeAdPopup.SetActive(false);
 
         RecoverLife();
     }
 
-    public void OnClickEmptyLife(int lifeIndex)
+    public void OnClickEmptyLife(int lifeIndex)//Que no pueda disparar
     {
         if (lifeImages[lifeIndex].sprite == emptyLifeSprite)
         {
+            LineBounce.lineBounceInstance.isOnMenus = true;
             if (adPopup != null)
                 adPopup.SetActive(true);
         }
