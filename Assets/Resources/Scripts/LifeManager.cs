@@ -157,5 +157,14 @@ public class LifeManager : MonoBehaviour
         RecoverLife();
     }
 
+    public void OnClickEmptyLife(int lifeIndex)
+    {
+        if (lifeImages[lifeIndex].sprite == emptyLifeSprite)
+        {
+            if (adPopup != null)
+                adPopup.SetActive(true);
+        }
+    }
+
     #endregion
 }

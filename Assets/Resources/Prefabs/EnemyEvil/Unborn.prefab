@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3399726984080443439}
   m_Layer: 0
   m_Name: Unborn
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,10 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_Data: {fileID: 11400000, guid: 76a0fdfb7103d1e42aa9e29de15de7ee, type: 2}
+  Enemy_Base_Speed: 1
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  Enemy_Target: {fileID: 0}
-  Enemy_Base_Speed: 1
 --- !u!58 &3399726984080443439
 CircleCollider2D:
   m_ObjectHideFlags: 0

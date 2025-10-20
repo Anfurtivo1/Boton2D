@@ -11,6 +11,7 @@ TagManager:
   - PlayButton
   - ShopButton
   - PeceraButton
+  - Enemy
   layers:
   - Default
   - TransparentFX

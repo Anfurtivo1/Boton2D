@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int player_HP = 3;
     public float player_AttackRate = 2f;
     public bool canShoot = true;
-
+    public LifeManager lifeManager;
 
     void Awake()
     {
@@ -36,4 +36,23 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Muelte");
+            Time.timeScale = 0f;
+
+            if (lifeManager != null)
+            {
+                lifeManager.LoseLife(); 
+            }
+            else
+            {
+                Debug.Log("No se encontró LifeManager en la escena.");
+            }
+        }
+    }
 }
+
