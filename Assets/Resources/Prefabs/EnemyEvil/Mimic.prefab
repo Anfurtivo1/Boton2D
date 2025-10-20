@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 120301361934423457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.044, z: 0}
+  m_LocalPosition: {x: 0.007, y: 0.096, z: 0}
   m_LocalScale: {x: 0.14768, y: 0.14768, z: 0.14768}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 5564874359099708402, guid: 9b9c331fc2d5f3c43957c4ffbcbd2896, type: 3}
-  m_Color: {r: 1, g: 0.5518868, b: 0.7970686, a: 1}
+  m_Color: {r: 0.5835262, g: 0.80822146, b: 0.8773585, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -230,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 6809439663707738970}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.062, y: 0.358, z: 0}
+  m_LocalPosition: {x: -0.04, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -249,11 +249,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 2
-  m_LightType: 1
+  m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.735
-  m_Color: {r: 1, g: 0.5529412, b: 0.8, a: 1}
-  m_Intensity: 3.07
+  m_Color: {r: 0.2878248, g: 0.7181432, b: 0.7924528, a: 1}
+  m_Intensity: 3.28
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -272,12 +272,12 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.07664999, y: -0.34469998, z: 0}
-    m_Extent: {x: 0.91335, y: 1.4835, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1.22
+  m_PointLightOuterRadius: 1.15
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
