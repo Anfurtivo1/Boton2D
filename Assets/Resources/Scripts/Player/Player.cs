@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public int bullet_Damage = 1;        
     public int player_HP = 3;
-    public float player_AttackRate = 0.5f;
+    public float player_AttackRate = 2f;
+    public bool canShoot = true;
+
 
     void Awake()
     {

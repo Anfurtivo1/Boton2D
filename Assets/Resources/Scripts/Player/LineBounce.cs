@@ -6,6 +6,8 @@ using UnityEngine.UI; // Nuevo Input System
 [RequireComponent(typeof(LineRenderer))]
 public class LineBounce : MonoBehaviour
 {
+    public static LineBounce lineBounceInstance;
+
     [Header("Movimiento")]
     public float amplitude = 45f;   // Ángulo máximo a cada lado
     public float speed = 2f;        // Velocidad de oscilación
@@ -16,7 +18,6 @@ public class LineBounce : MonoBehaviour
     [Header("Disparo")]
     public Bala projectilePrefab;  // Prefab del proyectil
     public float projectileSpeed = 40f;  // Velocidad del proyectil
-    public float shootCooldown = 2f;     // Cooldown entre disparos en segundos
 
     Vector3 start;
     Vector3 end;
@@ -24,9 +25,22 @@ public class LineBounce : MonoBehaviour
 
     private LineRenderer line;
     private float angle;
-    private bool canShoot = true;
+    public bool isOnMenus = false;
 
     public Image progressBar;
+
+    void Awake()
+    {
+        if (lineBounceInstance == null)
+        {
+            lineBounceInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -49,9 +63,9 @@ public class LineBounce : MonoBehaviour
 
     void Update()
     {
-        if (!canShoot)
+        if (!Player.playerInstance.canShoot)
         {
-            progressBar.fillAmount += 1f / shootCooldown * Time.deltaTime;
+            progressBar.fillAmount += 1f / Player.playerInstance.player_AttackRate * Time.deltaTime;
         }
 
         // Movimiento oscilante del apuntado
@@ -92,16 +106,20 @@ public class LineBounce : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
 
-        if (context.performed && canShoot) // Solo cuando se presiona
+        if (context.performed && Player.playerInstance.canShoot) // Solo cuando se presiona
         {
             progressBar.fillAmount = 0;
             Debug.Log("Entre en OnAttack");
-            canShoot = false;
+            Player.playerInstance.canShoot = false;
 
             Vector3 fixedPoint = new Vector3(-0.05f, -4.35f, 0f); // Tu punto exacto
 
             Shoot(direction, fixedPoint);
-            StartCoroutine(ShootCooldown()); // Inicia cooldown
+            if (!isOnMenus)
+            {
+                StartCoroutine(ShootCooldown()); // Inicia cooldown
+            }
+            
         }
         // Si quieres, puedes detectar cuando se suelta con context.canceled
     }
@@ -109,6 +127,8 @@ public class LineBounce : MonoBehaviour
     void Shoot(Vector3 direction, Vector3 spawnPos)
     {
         if (projectilePrefab == null) return;
+        
+        Debug.Log("Estoy en el Shoot");
 
         Bala projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
@@ -122,8 +142,12 @@ public class LineBounce : MonoBehaviour
     // Corutina para el cooldown
     private IEnumerator ShootCooldown()
     {
-        yield return new WaitForSeconds(shootCooldown);
-        canShoot = true;
+        Debug.Log("Estoy en el Shoot Cooldown");
+        if (!isOnMenus)
+        {
+            yield return new WaitForSeconds(Player.playerInstance.player_AttackRate);
+            Player.playerInstance.canShoot = true;
+        }
     }
 
 

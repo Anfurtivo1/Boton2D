@@ -26,6 +26,10 @@ public class MenuManager : MonoBehaviour
 
     private Coroutine cameraMoveCoroutine;
 
+    [Header("Posiciones de cámara")]
+    public GameObject canvasShop;
+    public GameObject canvasPecera;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
@@ -51,12 +55,16 @@ public class MenuManager : MonoBehaviour
 
             if (gameObject.CompareTag("ShopButton"))
             {
+                LineBounce.lineBounceInstance.isOnMenus = true;
+                canvasShop.SetActive(true);
                 Debug.Log("Me voy a la tienda");
                 MoveCameraTo(shopCameraPosition);
             }
 
             if (gameObject.CompareTag("PeceraButton"))
             {
+                LineBounce.lineBounceInstance.isOnMenus = true;
+                canvasPecera.SetActive(true);
                 Debug.Log("Me voy a la pecera");
                 MoveCameraTo(peceraCameraPosition);
             }
@@ -87,4 +95,34 @@ public class MenuManager : MonoBehaviour
 
         mainCamera.transform.position = targetPosition;
     }
+
+    private void MoveCameraToOrigin()
+    {
+        if (mainCamera == null) return;
+
+        if (cameraMoveCoroutine != null)
+            StopCoroutine(cameraMoveCoroutine);
+
+        // Mantiene el eje Z de la cámara
+        Vector3 targetPosition = new Vector3(0f, 0f, mainCamera.transform.position.z);
+
+        cameraMoveCoroutine = StartCoroutine(SmoothMoveCamera(targetPosition));
+    }
+
+
+    public void volverAtrasShop()
+    {
+        Player.playerInstance.canShoot = true;
+        LineBounce.lineBounceInstance.isOnMenus = false;
+        canvasShop.SetActive(false);
+        MoveCameraToOrigin();
+    }
+    public void volverAtrasPecera()
+    {
+        Player.playerInstance.canShoot = true;
+        LineBounce.lineBounceInstance.isOnMenus = false;
+        canvasPecera.SetActive(false);
+        MoveCameraToOrigin();
+    }
+
 }
