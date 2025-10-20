@@ -7,7 +7,6 @@ using System.Collections;
 
 public class ShopItemDisplayFull : MonoBehaviour
 {
-    GameManager gameManager;
     public GameObject buyingPanel;
     public string nearlyBoughtMonster;
     public GameObject buttonMonsterSelected;
@@ -38,17 +37,8 @@ public class ShopItemDisplayFull : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.Instance != null)
-        {
-            gameManager = GameManager.Instance;
-            gameManager.Money_Amount = Player_Money;
-        }
-
-        else
-            Player_Money = maMoni;
-
+        maMoniText.text = "$" + GameManager.Instance.Money_Amount;
         FillShop();
-        maMoniText.text = "$" + maMoni.ToString();
     }
 
     private void Update()
@@ -78,8 +68,11 @@ public class ShopItemDisplayFull : MonoBehaviour
             effectDescriptionText.text = item.itemEffectDescription;
             loreDescriptionText.text = item.itemLoreDescription;
             deathNeededText.text = "" + item.monsterNeededDeaths;
+            slot.GetComponent<IAmBuyable>().myID = item.ID;
         }
     }
+
+
 
     public void AddButton(GameObject button)
     {

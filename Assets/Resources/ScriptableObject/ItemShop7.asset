@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c90d4349725f664594ba5f6ae33b0db, type: 3}
   m_Name: ItemShop7
   m_EditorClassIdentifier: 
+  ID: 7
   monsterNeededDeaths: 750
   itemBought: 0
   itemPrice: 500000

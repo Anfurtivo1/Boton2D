@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class IAmBuyable : MonoBehaviour
 {
-    GameManager gameManager;
+    GameObject shopManager;
     public string myPriceString;
     public int myPriceInt;
+    public int myID;
     public int Player_Money;
     public int enemyTypeKills;
     public int enemyTypeKillsNeeded;
@@ -25,49 +26,33 @@ public class IAmBuyable : MonoBehaviour
 
     void Start()
     {
-        // Eliminar el símbolo $ y cualquier espacio
+
+        shopManager = GameObject.FindGameObjectWithTag("ShopManager");
         Invoke(nameof(TellMeYourPriceAndDeaths), 0.05f);
-
-
-        if (GameManager.Instance != null)
-        {
-            gameManager = GameManager.Instance;
-            gameManager.Money_Amount = Player_Money;
-        }
-
-        else
-        {
-            Player_Money = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
-            enemyTypeKills = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
-        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CheckUnlocks()
     {
-
-    }
-
-    public void CanThePlayerBuyMe()
-    {
-        Player_Money = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
-        enemyTypeKills = GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopItemDisplayFull>().maMoni;
-
-        if (enemyTypeKills >= enemyTypeKillsNeeded)
+        foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
         {
-            bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
-            bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
+            int kills = GameManager.Instance.GetMonsterKills(item.GetComponent<IAmBuyable>().myID);
 
-            if (Player_Money >= myPriceInt)
+            if (kills >= item.GetComponent<IAmBuyable>().enemyTypeKillsNeeded)
             {
-                itemIcon.GetComponent<Image>().color = Color.white;
-                gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
-            }
+                bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
+                bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
 
-            else
-            {
-                itemIcon.GetComponent<Image>().color = Color.black;
-                gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
+                if (Player_Money >= myPriceInt)
+                {
+                    itemIcon.GetComponent<Image>().color = Color.white;
+                    gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
+                }
+
+                else
+                {
+                    itemIcon.GetComponent<Image>().color = Color.black;
+                    gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
+                }
             }
         }
     }
@@ -77,7 +62,7 @@ public class IAmBuyable : MonoBehaviour
         myPriceString = itemPrice.GetComponent<TextMeshProUGUI>().text.Replace("$", "").Trim();
         int.TryParse(myPriceString, out myPriceInt);
         int.TryParse(itemDeathCount.GetComponent<TextMeshProUGUI>().text, out enemyTypeKillsNeeded);
-        CanThePlayerBuyMe();
+        CheckUnlocks();
     }
 }
 
