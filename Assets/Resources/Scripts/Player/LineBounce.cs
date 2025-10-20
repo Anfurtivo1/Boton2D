@@ -129,14 +129,17 @@ public class LineBounce : MonoBehaviour
         if (projectilePrefab == null) return;
         
         Debug.Log("Estoy en el Shoot");
-
-        Bala projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-
-        if (rb != null)
+        if (!isOnMenus)
         {
-            rb.linearVelocity = direction.normalized * projectileSpeed;
+            Bala projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.linearVelocity = direction.normalized * projectileSpeed;
+            }
         }
+        
     }
 
     // Corutina para el cooldown
