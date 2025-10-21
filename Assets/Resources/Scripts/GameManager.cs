@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log($"Monstruo ID: {entry.Key} | Muertes: {entry.Value}");
         }
-        Debug.Log("=====================================");
+        //Debug.Log("=====================================");
     }
 
 

@@ -1051,6 +1051,9 @@ MonoBehaviour:
   player_AttackRate: 0.5
   canShoot: 1
   lifeManager: {fileID: 2056357315}
+  bullet_speed: 10
+  mejoraDinero1: 0
+  mejoraDinero2: 0
 --- !u!58 &360639946
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9375,6 +9378,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 896082845}
     - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: LifeManager
+      value: 
+      objectReference: {fileID: 2056357315}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
       propertyPath: House_GameManager
       value: 
       objectReference: {fileID: 387533924}
@@ -15489,14 +15496,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplitude: 45
-  speed: 2
+  speed: 1.5
   length: 30
-  semiTransparent: {r: 0, g: 0, b: 0, a: 0}
-  SWidth: 0.25
-  EWidth: 0.25
+  semiTransparent: {r: 0.740566, g: 0.95888805, b: 1, a: 0.078431375}
+  SWidth: 0.15
+  EWidth: 0
   projectilePrefab: {fileID: 1673314699647059919, guid: 3f393cf751cb18d49a517f6ecc56f051, type: 3}
   projectileSpeed: 10
-  PS_Shoot: {fileID: 0}
   isOnMenus: 0
   progressBar: {fileID: 1556217410}
 --- !u!120 &2009554074

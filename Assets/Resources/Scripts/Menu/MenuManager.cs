@@ -33,6 +33,8 @@ public class MenuManager : MonoBehaviour
     [Header("Para saber si puedo jugar")]
     public LifeManager lifeManager;
 
+    public MonsterHouseManager monsterHouseManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
@@ -92,6 +94,9 @@ public class MenuManager : MonoBehaviour
                 }
 
                 LineBounce.lineBounceInstance.isOnMenus = true;
+
+                monsterHouseManager.cargarMonstruosPecera();
+
                 canvasPecera.SetActive(true);
                 Debug.Log("Me voy a la pecera");
                 MoveCameraTo(peceraCameraPosition);

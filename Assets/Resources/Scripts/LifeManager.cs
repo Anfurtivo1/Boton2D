@@ -146,6 +146,7 @@ public class LifeManager : MonoBehaviour
     //Llamar desde botón "Ver anuncio" en adPopup
     public void OnWatchAdButton()
     {
+        Debug.Log("Estoy en el anuncio");
         if (adPopup != null)
             adPopup.SetActive(false);
 
@@ -156,6 +157,7 @@ public class LifeManager : MonoBehaviour
     //Llamar desde botón "Cerrar anuncio" en fakeAdPopup
     public void OnCloseFakeAdButton()//Vuelva a disparar
     {
+        Debug.Log("Estoy en el anuncio x2");
         LineBounce.lineBounceInstance.isOnMenus = false;
         if (fakeAdPopup != null)
             fakeAdPopup.SetActive(false);

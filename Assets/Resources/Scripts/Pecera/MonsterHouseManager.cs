@@ -33,6 +33,31 @@ public class MonsterHouseManager : MonoBehaviour
         }
 
 
+        
+
+
+    }
+
+    public void SpawnMonster()
+    {
+        //for (int i = 0; i < length; i++)
+        //{
+        //    Camera cam = Camera.main;
+        //    Vector3 randomViewport = new Vector3(Random.value, Random.value, 0);
+        //    Vector3 spawnPos = cam.ViewportToWorldPoint(randomViewport);
+        //    spawnPos.z = 0f;
+        //    Instantiate(prefab, spawnPos, Quaternion.identity);
+        //}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void cargarMonstruosPecera()
+    {
         foreach (var item in ShopItemDisplayFull.Instance.Shop_Bought_Monsters)
         {
             switch (item.Monster_ID)
@@ -78,25 +103,6 @@ public class MonsterHouseManager : MonoBehaviour
                     break;
             }
         }
-
-
     }
 
-    public void SpawnMonster()
-    {
-        //for (int i = 0; i < length; i++)
-        //{
-        //    Camera cam = Camera.main;
-        //    Vector3 randomViewport = new Vector3(Random.value, Random.value, 0);
-        //    Vector3 spawnPos = cam.ViewportToWorldPoint(randomViewport);
-        //    spawnPos.z = 0f;
-        //    Instantiate(prefab, spawnPos, Quaternion.identity);
-        //}
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
