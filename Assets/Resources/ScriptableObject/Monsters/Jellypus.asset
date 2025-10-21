@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_ID: 4
   Monster_Name: Jellypus
-  Amount_Monster_NeedKill: 150
+  Amount_Monster_NeedKill: 40
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: 4cce3d3455a5cd0c59bc3413efb79ff0, type: 2}
   Other_Monster_Kill_Amount: 50
-  Monster_HP: 1
+  Monster_HP: 2
   Monster_Speed: 1
   Monster_LifeTime: 20
-  Money_Amount_Monster: 15
-  Cost_Monster: 25000
+  Money_Amount_Monster: 1280
+  Cost_Monster: 32000
   Monster_Sprite: {fileID: 0}
   Advantage_Type: 0
   Advantage_Value: 0

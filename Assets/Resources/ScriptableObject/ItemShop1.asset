@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 1000
   itemName: Unborn
   itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
-  itemEffectDescription: +2 Sashimi
+  itemEffectDescription: +Velocidad
   itemLoreDescription: Algunos confundieron su llegada con el enviado de un dios.
     En cierto modo no se equivocaban.

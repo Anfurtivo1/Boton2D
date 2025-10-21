@@ -142,7 +142,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -473,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPriceString: 
   myPriceInt: 0
+  myID: 0
   Player_Money: 0
   enemyTypeKills: 0
   enemyTypeKillsNeeded: 0

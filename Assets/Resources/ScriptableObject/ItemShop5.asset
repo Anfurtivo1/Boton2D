@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 80000
   itemName: Mimic
   itemSprite: {fileID: 5564874359099708402, guid: 9b9c331fc2d5f3c43957c4ffbcbd2896, type: 3}
-  itemEffectDescription: +2 Ramen
+  itemEffectDescription: +<3
   itemLoreDescription: Gobernaron la edad antigua desde las sombras, consumiendo
     la mente de monarcas de gran poder.

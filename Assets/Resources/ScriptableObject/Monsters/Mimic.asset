@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_ID: 5
   Monster_Name: Mimic
-  Amount_Monster_NeedKill: 300
+  Amount_Monster_NeedKill: 60
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: 4713bbce4c31fea8a8511eec65c6bc43, type: 2}
   Other_Monster_Kill_Amount: 75
-  Monster_HP: 2
+  Monster_HP: 3
   Monster_Speed: 0.5
   Monster_LifeTime: 20
-  Money_Amount_Monster: 25
-  Cost_Monster: 50000
+  Money_Amount_Monster: 5120
+  Cost_Monster: 80000
   Monster_Sprite: {fileID: 0}
   Advantage_Type: 0
   Advantage_Value: 0

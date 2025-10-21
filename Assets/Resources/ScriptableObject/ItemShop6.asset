@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 192000
   itemName: Siren
   itemSprite: {fileID: -8665222312531215729, guid: ead973c013c0d72489e1185e60e86c4f, type: 3}
-  itemEffectDescription: +2 Yasuke
+  itemEffectDescription: x2$
   itemLoreDescription: "Ni alas, ni cola de pez, las sirenas lo que ten\xEDan eran
     dos cuchillos enormes y muchas ganas de consumir carne humana."

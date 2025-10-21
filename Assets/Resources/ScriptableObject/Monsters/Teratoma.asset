@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_ID: 7
   Monster_Name: Teratoma
-  Amount_Monster_NeedKill: 0
+  Amount_Monster_NeedKill: 135
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: eb9d9f7d6a1104729a1fd6cb43425163, type: 2}
   Other_Monster_Kill_Amount: 250
-  Monster_HP: 1
+  Monster_HP: 4
   Monster_Speed: 3
   Monster_LifeTime: 20
-  Money_Amount_Monster: 20
-  Cost_Monster: 500000
+  Money_Amount_Monster: 81920
+  Cost_Monster: 448000
   Monster_Sprite: {fileID: 0}
   Advantage_Type: 0
   Advantage_Value: 0

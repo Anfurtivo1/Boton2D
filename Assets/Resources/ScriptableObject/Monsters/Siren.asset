@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_ID: 6
   Monster_Name: Siren
-  Amount_Monster_NeedKill: 500
+  Amount_Monster_NeedKill: 90
   Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: b6ba4cbb8f78709a98860c9fdd7125a7, type: 2}
   Other_Monster_Kill_Amount: 150
-  Monster_HP: 2
+  Monster_HP: 3
   Monster_Speed: 1
   Monster_LifeTime: 20
-  Money_Amount_Monster: 300
-  Cost_Monster: 100000
+  Money_Amount_Monster: 20480
+  Cost_Monster: 192000
   Monster_Sprite: {fileID: 0}
   Advantage_Type: 0
   Advantage_Value: 0

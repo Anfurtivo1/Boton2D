@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 448000
   itemName: Teratoma
   itemSprite: {fileID: -156689553521986087, guid: 47a0a4233852f3b4da050319832b0622, type: 3}
-  itemEffectDescription: +2 La Loles
+  itemEffectDescription: x2$
   itemLoreDescription: "Su punto d\xE9bil es el ojo, todo lo dem\xE1s es su punto
     fuerte. Suerte luchando contra \xE9l."

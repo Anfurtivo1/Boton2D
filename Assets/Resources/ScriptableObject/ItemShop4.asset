@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 32000
   itemName: Jellypus
   itemSprite: {fileID: 1097666170260281183, guid: 19e59410510e2ab429593572db4f8adb, type: 3}
-  itemEffectDescription: +2 Naruto
+  itemEffectDescription: +Recarga
   itemLoreDescription: "Las medusas involucionaron de estos viajeros dimensionales,
     la par\xE1lisis que causan es el menor de tus problemas."

@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 12000
   itemName: Vapor
   itemSprite: {fileID: -3142688169937498856, guid: 78827d752ca0287479cd7f9846f6ee80, type: 3}
-  itemEffectDescription: +2 Wasabi
+  itemEffectDescription: +<3
   itemLoreDescription: "La esp\xEDritus suelen poseer armaduras porque no son capaces
     de resistir consumir la carne de los seres vivos que habitan."
