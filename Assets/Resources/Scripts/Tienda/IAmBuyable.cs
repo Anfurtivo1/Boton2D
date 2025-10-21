@@ -31,13 +31,19 @@ public class IAmBuyable : MonoBehaviour
         Invoke(nameof(TellMeYourPriceAndDeaths), 0.05f);
     }
 
+    private void Update()
+    {
+
+        CheckUnlocks();
+    }
+
     private void CheckUnlocks()
     {
         foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
         {
-            int kills = GameManager.Instance.GetMonsterKills(item.GetComponent<IAmBuyable>().myID);
+            enemyTypeKills = GameManager.Instance.GetMonsterKills(item.GetComponent<IAmBuyable>().myID);
 
-            if (kills >= item.GetComponent<IAmBuyable>().enemyTypeKillsNeeded)
+            if (enemyTypeKills >= item.GetComponent<IAmBuyable>().enemyTypeKillsNeeded)
             {
                 bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
                 bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
@@ -62,7 +68,6 @@ public class IAmBuyable : MonoBehaviour
         myPriceString = itemPrice.GetComponent<TextMeshProUGUI>().text.Replace("$", "").Trim();
         int.TryParse(myPriceString, out myPriceInt);
         int.TryParse(itemDeathCount.GetComponent<TextMeshProUGUI>().text, out enemyTypeKillsNeeded);
-        CheckUnlocks();
     }
 }
 

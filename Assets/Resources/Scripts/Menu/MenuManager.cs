@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     public List<GameObject> ShowPecera = new List<GameObject>();
 
     [Header("Spawner")]
-    public Spawner spawnerScript;  
+    public Spawner spawnerScript;
 
     [Header("Cámara")]
     public Camera mainCamera;
@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
             if (lifeManager != null && !lifeManager.HasLives())
             {
                 Debug.Log("No puedes jugar, no tienes vidas disponibles.");
-                return; 
+                return;
             }
             if (gameObject.CompareTag("PlayButton"))
             {
@@ -63,6 +63,12 @@ public class MenuManager : MonoBehaviour
 
             if (gameObject.CompareTag("ShopButton"))
             {
+                foreach (var obj in HideShop)
+                {
+                    if (obj != null)
+                        obj.SetActive(false);
+                }
+
                 LineBounce.lineBounceInstance.isOnMenus = true;
                 canvasShop.SetActive(true);
                 Debug.Log("Me voy a la tienda");
@@ -71,6 +77,12 @@ public class MenuManager : MonoBehaviour
 
             if (gameObject.CompareTag("PeceraButton"))
             {
+                foreach (var obj in HidePecera)
+                {
+                    if (obj != null)
+                        obj.SetActive(false);
+                }
+
                 LineBounce.lineBounceInstance.isOnMenus = true;
                 canvasPecera.SetActive(true);
                 Debug.Log("Me voy a la pecera");
