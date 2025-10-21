@@ -21,7 +21,7 @@ MonoBehaviour:
   Monster_HP: 1
   Monster_Speed: 0.25
   Monster_LifeTime: 20
-  Money_Amount_Monster: 10
+  Money_Amount_Monster: 20
   Cost_Monster: 1000
   Monster_Sprite: {fileID: 0}
   Advantage_Type: 0

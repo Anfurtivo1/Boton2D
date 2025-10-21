@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemShop5
   m_EditorClassIdentifier: 
   ID: 5
-  monsterNeededDeaths: 300
+  monsterNeededDeaths: 60
   itemBought: 0
-  itemPrice: 50000
+  itemPrice: 80000
   itemName: Mimic
-  itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
+  itemSprite: {fileID: 5564874359099708402, guid: 9b9c331fc2d5f3c43957c4ffbcbd2896, type: 3}
   itemEffectDescription: +2 Ramen
   itemLoreDescription: Gobernaron la edad antigua desde las sombras, consumiendo
     la mente de monarcas de gran poder.

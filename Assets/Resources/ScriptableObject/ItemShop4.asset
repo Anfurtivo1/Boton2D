@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemShop4
   m_EditorClassIdentifier: 
   ID: 4
-  monsterNeededDeaths: 150
+  monsterNeededDeaths: 40
   itemBought: 0
-  itemPrice: 25000
+  itemPrice: 32000
   itemName: Jellypus
-  itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
+  itemSprite: {fileID: 1097666170260281183, guid: 19e59410510e2ab429593572db4f8adb, type: 3}
   itemEffectDescription: +2 Naruto
   itemLoreDescription: "Las medusas involucionaron de estos viajeros dimensionales,
     la par\xE1lisis que causan es el menor de tus problemas."

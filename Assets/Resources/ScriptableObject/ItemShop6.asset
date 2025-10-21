@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemShop6
   m_EditorClassIdentifier: 
   ID: 6
-  monsterNeededDeaths: 500
+  monsterNeededDeaths: 90
   itemBought: 0
-  itemPrice: 100000
+  itemPrice: 192000
   itemName: Siren
-  itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
+  itemSprite: {fileID: -8665222312531215729, guid: ead973c013c0d72489e1185e60e86c4f, type: 3}
   itemEffectDescription: +2 Yasuke
   itemLoreDescription: "Ni alas, ni cola de pez, las sirenas lo que ten\xEDan eran
     dos cuchillos enormes y muchas ganas de consumir carne humana."

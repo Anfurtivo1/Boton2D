@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemShop7
   m_EditorClassIdentifier: 
   ID: 7
-  monsterNeededDeaths: 750
+  monsterNeededDeaths: 135
   itemBought: 0
-  itemPrice: 500000
+  itemPrice: 448000
   itemName: Teratoma
-  itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
+  itemSprite: {fileID: -156689553521986087, guid: 47a0a4233852f3b4da050319832b0622, type: 3}
   itemEffectDescription: +2 La Loles
   itemLoreDescription: "Su punto d\xE9bil es el ojo, todo lo dem\xE1s es su punto
     fuerte. Suerte luchando contra \xE9l."

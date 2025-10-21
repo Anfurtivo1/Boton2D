@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemShop2
   m_EditorClassIdentifier: 
   ID: 2
-  monsterNeededDeaths: 60
+  monsterNeededDeaths: 15
   itemBought: 0
-  itemPrice: 5000
+  itemPrice: 4000
   itemName: Elemental
-  itemSprite: {fileID: -7031486786574018199, guid: 71d0c52add69ce5498cee84c9c761701, type: 3}
+  itemSprite: {fileID: 7490432546630728423, guid: ede4fb51e5576854fbb1097354812f54, type: 3}
   itemEffectDescription: +2 Uramaki
   itemLoreDescription: "Parece ser que los primeros hombres lo confundieron con \xE1ngeles.
     Lamentaron mucho dicha equivocaci\xF3n."

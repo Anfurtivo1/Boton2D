@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemShop1
   m_EditorClassIdentifier: 
   ID: 1
-  monsterNeededDeaths: 50
+  monsterNeededDeaths: 10
   itemBought: 0
   itemPrice: 1000
   itemName: Unborn
