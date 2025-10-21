@@ -33,11 +33,9 @@ public class IAmBuyable : MonoBehaviour
 
     private void Update()
     {
-
-        CheckUnlocks();
     }
 
-    private void CheckUnlocks()
+    public void CheckUnlocks()
     {
         foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
         {
