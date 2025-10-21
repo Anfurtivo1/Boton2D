@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public float speed = 10f;
     private Vector3 moveDir;
 
     public void SetDirection(Vector3 dir)
@@ -13,7 +12,7 @@ public class Bala : MonoBehaviour
     void Update()
     {
         // Mueve el proyectil cada frame
-        transform.position += moveDir * speed * Time.deltaTime;
+        transform.position += moveDir * Player.playerInstance.bullet_speed * Time.deltaTime;
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)

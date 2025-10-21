@@ -7,6 +7,8 @@ using System.Collections;
 
 public class ShopItemDisplayFull : MonoBehaviour
 {
+    public static ShopItemDisplayFull Instance;
+
     public GameObject buyingPanel;
     public string nearlyBoughtMonster;
     public GameObject buttonMonsterSelected;
@@ -15,7 +17,7 @@ public class ShopItemDisplayFull : MonoBehaviour
     public List<ItemShop> shopItems;   // ScriptableObject assets
 
     public List<MonsterData> Shop_Available_Monsters; // ScriptableObject assets
-    public List<MonsterData> Shop_Bought_Monsters;
+    public List<MonsterData> Shop_Bought_Monsters;//Añadir al guardado
 
     int Player_Money;
     public int maMoni;
@@ -34,6 +36,19 @@ public class ShopItemDisplayFull : MonoBehaviour
 
     [Header("Slots (Prefabs in Scene)")]
     public List<GameObject> itemSlots; // The 4 prefabs in the UI
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
