@@ -102,7 +102,7 @@ public class ShopItemDisplayFull : MonoBehaviour
             }
         }
 
-        Destroy(buttonMonsterSelected);
+        buttonMonsterSelected.SetActive(false);
         buyingPanel.SetActive(false);
     }
 
