@@ -10,9 +10,10 @@ public class Player : MonoBehaviour
     public float player_AttackRate = 2f;
     public bool canShoot = true;
     public LifeManager lifeManager;
-    public float bullet_speed;//añadir al guardado
+    public float bullet_speed = 10f;//añadir al guardado
     public bool mejoraDinero1;//añadir al guardado
     public bool mejoraDinero2;//añadir al guardado
+
 
     void Awake()
     {

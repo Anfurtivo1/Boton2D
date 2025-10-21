@@ -12,13 +12,9 @@ public class ShopItemDisplayFull : MonoBehaviour
     public GameObject buttonMonsterSelected;
 
     [Header("Data")]
-    public List<ItemShop> shopItems;   // ScriptableObject assets
-
-    public List<MonsterData> Shop_Available_Monsters; // ScriptableObject assets
-    public List<MonsterData> Shop_Bought_Monsters;//Añadir al guardado
     public List<ItemShop> shopItems;
     public List<MonsterData> Shop_Available_Monsters;
-    public List<MonsterData> Shop_Bought_Monsters;
+    public List<MonsterData> Shop_Bought_Monsters;//AÃ±adir guardado con booleanos
 
     int Player_Money;
     public int maMoni;
@@ -28,6 +24,14 @@ public class ShopItemDisplayFull : MonoBehaviour
     MonsterData Shop_Selected_Monster;
     GameObject Shop_UI;
     List<GameObject> Shop_UI_Monster_Slots;
+
+    public bool monster1Bought = false;
+    public bool monster2Bought = false;
+    public bool monster3Bought = false;
+    public bool monster4Bought = false;
+    public bool monster5Bought = false;
+    public bool monster6Bought = false;
+    public bool monster7Bought = false;
 
     [Header("Slots (Prefabs in Scene)")]
     public List<GameObject> itemSlots;

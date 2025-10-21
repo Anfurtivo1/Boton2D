@@ -17,6 +17,8 @@ public class MonsterHouseManager : MonoBehaviour
 
     public GameObject House_UI;
 
+    public LifeManager LifeManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +32,7 @@ public class MonsterHouseManager : MonoBehaviour
             House_GameManager = GameManager.Instance;
         }
 
+
         foreach (var item in ShopItemDisplayFull.Instance.Shop_Bought_Monsters)
         {
             switch (item.Monster_ID)
@@ -41,12 +44,13 @@ public class MonsterHouseManager : MonoBehaviour
 
                 case 2:
                     Debug.Log($"El {item.Monster_Name} tiene ID 2 → hacer acción B");
-                    Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate /0.75f;
+                    Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
                     break;
 
                 case 3:
                     Debug.Log($"El {item.Monster_Name} tiene ID 3 → hacer acción C");
                     //+1 corazon
+                    LifeManager.maxLives = LifeManager.maxLives + 1;
                     break;
                 case 4:
                     Debug.Log($"El {item.Monster_Name} tiene ID 4 → hacer acción D");
@@ -55,7 +59,8 @@ public class MonsterHouseManager : MonoBehaviour
 
                 case 5:
                     Debug.Log($"El {item.Monster_Name} tiene ID 5 → hacer acción E");
-                    //1+ corazon
+                    //LifeManager.maxLives = LifeManager.maxLives + 1;
+                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
                     break;
 
                 case 6:

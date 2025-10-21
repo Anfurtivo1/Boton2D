@@ -97,6 +97,9 @@ public class EnemyController : MonoBehaviour
         {
             GameManager.Instance.AddMonsterKill(Enemy_Data.Monster_ID);
         }
+
+        GameManager.Instance.Money_Amount = GameManager.Instance.Money_Amount + Enemy_Data.Money_Amount_Monster;
+
         Enemy_Current_Speed = 0f;
         //Animación de muerte si hacemos al final¿?
         if (animator != null)

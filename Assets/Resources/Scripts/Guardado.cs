@@ -61,6 +61,24 @@ public class Guardado : MonoBehaviour
 
         Player.playerInstance.player_AttackRate = PlayerPrefs.GetFloat("player_AttackRate");
 
+        Player.playerInstance.mejoraDinero1 = PlayerPrefs.GetInt("mejoraDinero1", 0) == 1;
+
+        Player.playerInstance.mejoraDinero2 = PlayerPrefs.GetInt("mejoraDinero2", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster1Bought = PlayerPrefs.GetInt("monster1Bought", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster2Bought = PlayerPrefs.GetInt("monster2Bought", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster3Bought = PlayerPrefs.GetInt("monster3Bought", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster4Bought = PlayerPrefs.GetInt("monster4Bought", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster5Bought = PlayerPrefs.GetInt("monster5Bought", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster6Bought = PlayerPrefs.GetInt("monster6Bought", 0) == 1;
+
+        ShopItemDisplayFull.Instance.monster7Bought = PlayerPrefs.GetInt("monster7Bought", 0) == 1;
+
         GameManager.Instance.MonsterKills = PrefsDictionary.LoadDictionary("MonsterKills");
         //Debug.Log("Diccionario cargado desde PlayerPrefs.");
 
@@ -76,6 +94,25 @@ public class Guardado : MonoBehaviour
         PlayerPrefs.SetInt("Money_Amount", GameManager.Instance.Money_Amount);
 
         PlayerPrefs.SetFloat("player_AttackRate", Player.playerInstance.player_AttackRate);
+
+        PlayerPrefs.SetInt("mejoraDinero1", Player.playerInstance.mejoraDinero1 ? 1 : 0);
+
+        PlayerPrefs.SetInt("mejoraDinero2", Player.playerInstance.mejoraDinero2 ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster1Bought", ShopItemDisplayFull.Instance.monster1Bought ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster2Bought", ShopItemDisplayFull.Instance.monster2Bought ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster3Bought", ShopItemDisplayFull.Instance.monster3Bought ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster4Bought", ShopItemDisplayFull.Instance.monster4Bought ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster5Bought", ShopItemDisplayFull.Instance.monster5Bought ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster6Bought", ShopItemDisplayFull.Instance.monster6Bought ? 1 : 0);
+
+        PlayerPrefs.SetInt("monster7Bought", ShopItemDisplayFull.Instance.monster7Bought ? 1 : 0);
+
 
         PrefsDictionary.SaveDictionary("MonsterKills", GameManager.Instance.MonsterKills);
         //Debug.Log("Diccionario guardado en PlayerPrefs.");
