@@ -46,7 +46,8 @@ public class Player : MonoBehaviour
 
             if (lifeManager != null)
             {
-                lifeManager.LoseLife(); 
+                lifeManager.LoseLife();
+                Guardado.instance.GuardarDatos();
             }
             else
             {

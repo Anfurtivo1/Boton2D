@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("userFirstTimeExperience"))//Ya tenía datos guardados, estos datos se guardan al acabar cada run
+        {
+            Guardado.instance.CargarDatos();
+        }
+    }
+        
+
     #region --- Dinero ---
     public void AddMoney(int amount)
     {
