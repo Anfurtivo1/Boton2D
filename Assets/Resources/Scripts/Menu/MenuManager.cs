@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
     private Coroutine cameraMoveCoroutine;
 
-    [Header("Posiciones de cámara")]
+    [Header("Canvas")]
     public GameObject canvasShop;
     public GameObject canvasPecera;
 
@@ -42,6 +42,7 @@ public class MenuManager : MonoBehaviour
                 Debug.Log("No puedes jugar, no tienes vidas disponibles.");
                 return;
             }
+
             if (gameObject.CompareTag("PlayButton"))
             {
                 foreach (var obj in HideMenu)
@@ -73,6 +74,13 @@ public class MenuManager : MonoBehaviour
                 canvasShop.SetActive(true);
                 Debug.Log("Me voy a la tienda");
                 MoveCameraTo(shopCameraPosition);
+
+                // ?? Actualizar unlocks de los ítems de la tienda al entrar
+                ShopItemDisplayFull shopDisplay = FindObjectOfType<ShopItemDisplayFull>();
+                if (shopDisplay != null)
+                {
+                    shopDisplay.RefreshAllUnlocks();
+                }
             }
 
             if (gameObject.CompareTag("PeceraButton"))
@@ -123,12 +131,9 @@ public class MenuManager : MonoBehaviour
         if (cameraMoveCoroutine != null)
             StopCoroutine(cameraMoveCoroutine);
 
-        // Mantiene el eje Z de la cámara
         Vector3 targetPosition = new Vector3(0f, 0f, mainCamera.transform.position.z);
-
         cameraMoveCoroutine = StartCoroutine(SmoothMoveCamera(targetPosition));
     }
-
 
     public void volverAtrasShop()
     {
@@ -137,6 +142,7 @@ public class MenuManager : MonoBehaviour
         canvasShop.SetActive(false);
         MoveCameraToOrigin();
     }
+
     public void volverAtrasPecera()
     {
         Player.playerInstance.canShoot = true;
@@ -144,5 +150,4 @@ public class MenuManager : MonoBehaviour
         canvasPecera.SetActive(false);
         MoveCameraToOrigin();
     }
-
 }

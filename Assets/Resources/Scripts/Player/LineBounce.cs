@@ -21,7 +21,7 @@ public class LineBounce : MonoBehaviour
     [Header("Disparo")]
     public Bala projectilePrefab;  // Prefab del proyectil
     public float projectileSpeed = 40f;  // Velocidad del proyectil
-    public ParticleSystem PS_Shoot;
+    //public ParticleSystem PS_Shoot;
 
     Vector3 start;
     Vector3 end;
@@ -137,7 +137,7 @@ public class LineBounce : MonoBehaviour
         {
             //Aqui disparo
 
-            PS_Shoot.Play();
+            //PS_Shoot.Play();
 
             Bala projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();

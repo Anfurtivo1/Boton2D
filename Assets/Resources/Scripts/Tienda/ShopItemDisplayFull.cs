@@ -1,9 +1,7 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections;
 
 public class ShopItemDisplayFull : MonoBehaviour
 {
@@ -18,24 +16,21 @@ public class ShopItemDisplayFull : MonoBehaviour
 
     public List<MonsterData> Shop_Available_Monsters; // ScriptableObject assets
     public List<MonsterData> Shop_Bought_Monsters;//A�adir al guardado
+    public List<ItemShop> shopItems;
+    public List<MonsterData> Shop_Available_Monsters;
+    public List<MonsterData> Shop_Bought_Monsters;
 
     int Player_Money;
     public int maMoni;
     public TextMeshProUGUI maMoniText;
 
     int Shop_Current_House_Slots;
-
     MonsterData Shop_Selected_Monster;
-
     GameObject Shop_UI;
-
     List<GameObject> Shop_UI_Monster_Slots;
 
-    //MonsterHouseManager Shop_MonsterHouseManager;
-
-
     [Header("Slots (Prefabs in Scene)")]
-    public List<GameObject> itemSlots; // The 4 prefabs in the UI
+    public List<GameObject> itemSlots;
 
     void Awake()
     {
@@ -59,7 +54,6 @@ public class ShopItemDisplayFull : MonoBehaviour
     private void Update()
     {
         maMoniText.text = "$" + GameManager.Instance.Money_Amount;
-        FillShop();
     }
 
     void FillShop()
@@ -69,7 +63,6 @@ public class ShopItemDisplayFull : MonoBehaviour
             ItemShop item = shopItems[i];
             GameObject slot = itemSlots[i];
 
-            // Assuming each prefab has these components in children:
             TextMeshProUGUI nameText = slot.GetComponent<IAmBuyable>().itemName.GetComponent<TextMeshProUGUI>();
             Image iconImage = slot.GetComponent<IAmBuyable>().itemIcon.GetComponent<Image>();
             TextMeshProUGUI priceText = slot.GetComponent<IAmBuyable>().itemPrice.GetComponent<TextMeshProUGUI>();
@@ -77,7 +70,6 @@ public class ShopItemDisplayFull : MonoBehaviour
             TextMeshProUGUI loreDescriptionText = slot.GetComponent<IAmBuyable>().itemLoreDescription.GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI deathNeededText = slot.GetComponent<IAmBuyable>().itemDeathCount.GetComponent<TextMeshProUGUI>();
 
-            // Fill with data
             nameText.text = item.itemName;
             priceText.text = "$" + item.itemPrice;
             iconImage.sprite = item.itemSprite;
@@ -88,7 +80,22 @@ public class ShopItemDisplayFull : MonoBehaviour
         }
     }
 
-
+    // 🔹 Nuevo método para refrescar todos los unlocks
+    public void RefreshAllUnlocks()
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot != null)
+            {
+                var buyable = slot.GetComponent<IAmBuyable>();
+                if (buyable != null)
+                {
+                    buyable.CheckUnlocks();
+                }
+            }
+        }
+        Debug.Log("Se actualizaron los unlocks de todos los ítems de la tienda.");
+    }
 
     public void AddButton(GameObject button)
     {
@@ -114,10 +121,11 @@ public class ShopItemDisplayFull : MonoBehaviour
             {
                 Shop_Bought_Monsters.Add(Shop_Available_Monsters[i]);
                 Shop_Available_Monsters.Remove(Shop_Available_Monsters[i]);
+                break;
             }
         }
 
-        Destroy(buttonMonsterSelected);
+        buttonMonsterSelected.SetActive(false);
         buyingPanel.SetActive(false);
     }
 
