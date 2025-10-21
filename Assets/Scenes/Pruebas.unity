@@ -15424,8 +15424,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplitude: 45
-  speed: 2
+  speed: 1.5
   length: 30
+  semiTransparent: {r: 0.62184054, g: 0.9622642, b: 0.9590306, a: 0.078431375}
+  SWidth: 0.15
+  EWidth: 0
   projectilePrefab: {fileID: 1673314699647059919, guid: 3f393cf751cb18d49a517f6ecc56f051, type: 3}
   projectileSpeed: 10
   isOnMenus: 0
