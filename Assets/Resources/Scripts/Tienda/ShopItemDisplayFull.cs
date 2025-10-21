@@ -43,7 +43,8 @@ public class ShopItemDisplayFull : MonoBehaviour
 
     private void Update()
     {
-
+        maMoniText.text = "$" + GameManager.Instance.Money_Amount;
+        FillShop();
     }
 
     void FillShop()

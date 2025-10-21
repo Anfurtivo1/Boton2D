@@ -30,8 +30,14 @@ public class GameManager : MonoBehaviour
         {
             Guardado.instance.CargarDatos();
         }
+
+        foreach (var entry in MonsterKills)
+        {
+            Debug.Log($"Monstruo ID: {entry.Key} | Muertes: {entry.Value}");
+        }
+        Debug.Log("=====================================");
     }
-        
+
 
     #region --- Dinero ---
     public void AddMoney(int amount)
