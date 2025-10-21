@@ -14,10 +14,14 @@ public class LineBounce : MonoBehaviour
 
     [Header("Línea")]
     public float length = 5f;       // Longitud de la línea
+    public Color semiTransparent;
+    public float SWidth = 0.25f; 
+    public float EWidth = 0.25f;
 
     [Header("Disparo")]
     public Bala projectilePrefab;  // Prefab del proyectil
     public float projectileSpeed = 40f;  // Velocidad del proyectil
+    public ParticleSystem PS_Shoot;
 
     Vector3 start;
     Vector3 end;
@@ -51,13 +55,13 @@ public class LineBounce : MonoBehaviour
         line.material = new Material(Shader.Find("Sprites/Default"));
 
         // 🔹 Color semitransparente
-        Color semiTransparent = new Color(1f, 1f, 1f, 0.1f);
+        //Color semiTransparent = new Color(1f, 1f, 1f, 0.1f);
         line.startColor = semiTransparent;
         line.endColor = semiTransparent;
 
         // 🔹 (Opcional) ajustar grosor de la línea
-        line.startWidth = 0.25f;
-        line.endWidth = 0.25f;
+        line.startWidth = SWidth;
+        line.endWidth = EWidth;
     }
 
 
@@ -131,6 +135,10 @@ public class LineBounce : MonoBehaviour
         Debug.Log("Estoy en el Shoot");
         if (!isOnMenus)
         {
+            //Aqui disparo
+
+            PS_Shoot.Play();
+
             Bala projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
 
