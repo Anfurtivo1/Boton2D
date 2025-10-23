@@ -37,27 +37,34 @@ public class IAmBuyable : MonoBehaviour
 
     public void CheckUnlocks()
     {
-        foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
+        if (shopManager != null)
         {
-            enemyTypeKills = GameManager.Instance.GetMonsterKills(item.GetComponent<IAmBuyable>().myID);
-
-            if (enemyTypeKills >= item.GetComponent<IAmBuyable>().enemyTypeKillsNeeded)
+            foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
             {
-                bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
-                bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
+                enemyTypeKills = GameManager.Instance.GetMonsterKills(item.GetComponent<IAmBuyable>().myID);
 
-                if (Player_Money >= myPriceInt)
+                if (enemyTypeKills >= item.GetComponent<IAmBuyable>().enemyTypeKillsNeeded)
                 {
-                    itemIcon.GetComponent<Image>().color = Color.white;
-                    gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
-                }
+                    bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
+                    bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
 
-                else
-                {
-                    itemIcon.GetComponent<Image>().color = Color.black;
-                    gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
+                    if (Player_Money >= myPriceInt)
+                    {
+                        itemIcon.GetComponent<Image>().color = Color.white;
+                        gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
+                    }
+
+                    else
+                    {
+                        itemIcon.GetComponent<Image>().color = Color.black;
+                        gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
+                    }
                 }
             }
+        }
+        else
+        {
+            Debug.Log("No encontré el shopManager");
         }
     }
 

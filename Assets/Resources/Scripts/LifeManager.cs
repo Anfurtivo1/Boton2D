@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +13,7 @@ public class LifeManager : MonoBehaviour
     public int currentLives;
 
     [Header("Sprites de vidas")]
-    public Image[] lifeImages; 
+    public List<Image> lifeImages; 
     public Sprite fullLifeSprite;
     public Sprite emptyLifeSprite;
 

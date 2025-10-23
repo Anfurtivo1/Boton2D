@@ -76,6 +76,7 @@ public class MonsterHouseManager : MonoBehaviour
                     Debug.Log($"El {item.Monster_Name} tiene ID 3 → hacer acción C");
                     //+1 corazon
                     LifeManager.maxLives = LifeManager.maxLives + 1;
+                    LifeManager.lifeImages[3].gameObject.SetActive( true );
                     break;
                 case 4:
                     Debug.Log($"El {item.Monster_Name} tiene ID 4 → hacer acción D");
