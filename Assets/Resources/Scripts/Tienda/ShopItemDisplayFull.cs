@@ -25,6 +25,7 @@ public class ShopItemDisplayFull : MonoBehaviour
     GameObject Shop_UI;
     List<GameObject> Shop_UI_Monster_Slots;
 
+    [Header ("Monstruos comprados")]
     public bool monster1Bought = false;
     public bool monster2Bought = false;
     public bool monster3Bought = false;
@@ -124,6 +125,9 @@ public class ShopItemDisplayFull : MonoBehaviour
             if (Shop_Available_Monsters[i].Monster_Name == nearlyBoughtMonster)
             {
                 Shop_Bought_Monsters.Add(Shop_Available_Monsters[i]);
+
+                BoughtMonster(Shop_Bought_Monsters[i].Monster_ID);
+
                 Shop_Available_Monsters.Remove(Shop_Available_Monsters[i]);
                 break;
             }
@@ -131,6 +135,36 @@ public class ShopItemDisplayFull : MonoBehaviour
 
         buttonMonsterSelected.SetActive(false);
         buyingPanel.SetActive(false);
+    }
+
+    public void BoughtMonster(int ID)
+    {
+        switch (ID)
+        {
+            case 1:
+                monster1Bought = true;
+                break;
+            case 2:
+                monster2Bought = true;
+                break;
+            case 3:
+                monster3Bought = true;
+                break;
+            case 4:
+                monster4Bought = true;
+                break;
+            case 5:
+                monster5Bought = true;
+                break;
+            case 6:
+                monster6Bought = true;
+                break;
+            case 7:
+                monster7Bought = true;
+                break;
+            default:
+                break;
+        }
     }
 
     public void NopeIDontBuyIt()

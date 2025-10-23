@@ -134,7 +134,8 @@ public class MonsterHouseManager : MonoBehaviour
 
                     Debug.Log($"El {item.Monster_Name} tiene ID 5 → hacer acción E");
                     //LifeManager.maxLives = LifeManager.maxLives + 1;
-                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
+                    LifeManager.maxLives = LifeManager.maxLives + 1;
+                    LifeManager.lifeImages[4].gameObject.SetActive(true);
                     break;
 
                 case 6:

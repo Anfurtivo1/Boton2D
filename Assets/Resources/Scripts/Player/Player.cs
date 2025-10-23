@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     public bool canShoot = true;
     public LifeManager lifeManager;
     public float bullet_speed = 10f;//añadir al guardado
-    public bool mejoraDinero1;//añadir al guardado
-    public bool mejoraDinero2;//añadir al guardado
+    public bool mejoraDinero1;
+    public bool mejoraDinero2;
 
 
     void Awake()

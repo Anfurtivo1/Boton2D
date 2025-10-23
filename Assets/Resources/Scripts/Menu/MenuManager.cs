@@ -145,6 +145,7 @@ public class MenuManager : MonoBehaviour
         Player.playerInstance.canShoot = true;
         LineBounce.lineBounceInstance.isOnMenus = false;
         canvasShop.SetActive(false);
+        Guardado.instance.GuardarDatos();
         MoveCameraToOrigin();
     }
 

@@ -29,7 +29,7 @@ public class LifeManager : MonoBehaviour
     private void Awake()
     {
         //Cargar vidas guardadas
-        currentLives = PlayerPrefs.GetInt("CurrentLives", maxLives);
+        currentLives = PlayerPrefs.GetInt("CurrentLives", maxLives);//Al cambiar el limite de vidas, esto peta
 
         lifeLostTimes = new DateTime[maxLives];
         for (int i = 0; i < maxLives; i++)
@@ -48,6 +48,18 @@ public class LifeManager : MonoBehaviour
 
     private void Update()
     {
+        ////Cargar vidas guardadas
+        //currentLives = PlayerPrefs.GetInt("CurrentLives", maxLives);
+
+        //lifeLostTimes = new DateTime[maxLives];
+        //for (int i = 0; i < maxLives; i++)
+        //{
+        //    long binaryTime = Convert.ToInt64(PlayerPrefs.GetString($"LifeLostTime{i}", "0"));
+        //    lifeLostTimes[i] = binaryTime == 0 ? DateTime.MinValue : DateTime.FromBinary(binaryTime);
+        //}
+
+        //UpdateLifeUI();
+
         CheckLifeRegeneration();
     }
 
