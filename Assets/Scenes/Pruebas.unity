@@ -352,6 +352,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a982bcd14c0c24645a482fe1e0fad4d6, type: 3}
+--- !u!114 &59414551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4454355273619723442, guid: cee844e81a9f50e40b968e50d3252b6e, type: 3}
+  m_PrefabInstance: {fileID: 869537403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d3bacb998736052889bf7b88d11f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &145906841
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +864,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &279819112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+  m_PrefabInstance: {fileID: 1639833656}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16658a7b818a6836bb117c31985fbbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281855872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1355,7 @@ GameObject:
   - component: {fileID: 397154418}
   - component: {fileID: 397154417}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasVidasTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2103,7 +2125,7 @@ MonoBehaviour:
   canvasShop: {fileID: 1842819380}
   canvasPecera: {fileID: 896082845}
   lifeManager: {fileID: 2056357315}
-  monsterHouseManager: {fileID: 0}
+  monsterHouseManager: {fileID: 279819112}
 --- !u!1 &571762779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,7 +2403,7 @@ MonoBehaviour:
   canvasShop: {fileID: 1842819380}
   canvasPecera: {fileID: 896082845}
   lifeManager: {fileID: 2056357315}
-  monsterHouseManager: {fileID: 0}
+  monsterHouseManager: {fileID: 279819112}
 --- !u!1 &639936894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,7 +3054,7 @@ MonoBehaviour:
   canvasShop: {fileID: 1842819380}
   canvasPecera: {fileID: 896082845}
   lifeManager: {fileID: 2056357315}
-  monsterHouseManager: {fileID: 0}
+  monsterHouseManager: {fileID: 279819112}
 --- !u!1 &846374244
 GameObject:
   m_ObjectHideFlags: 0
@@ -9386,9 +9408,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2056357315}
     - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: shopManager
+      value: 
+      objectReference: {fileID: 59414551}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
       propertyPath: House_GameManager
       value: 
       objectReference: {fileID: 387533924}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: House_Monster_Prefabs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: 824122bc12d5bb748be0aa2e83142ae3, type: 3}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: 34b0e5f56d8a3514e9cb5188fad3e922, type: 3}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: e4edf6d37ffb6474482dd83872c4ad8c, type: 3}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: af5e9dddef6ea8b4998c8c6da5612adf, type: 3}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: a007f565bcea4b04889e53e808a74b41, type: 3}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: 468308cb61d8a3f419664a81efea0aa4, type: 3}
+    - target: {fileID: 6269165631820486628, guid: e7a080376934cc44894779280a2b6fff, type: 3}
+      propertyPath: 'House_Monster_Prefabs.Array.data[6]'
+      value: 
+      objectReference: {fileID: 7168912847083969558, guid: da3e6cc8fbf998c429ae7e1d5800cd65, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16017,6 +16075,7 @@ SceneRoots:
   - {fileID: 360639944}
   - {fileID: 387533925}
   - {fileID: 2056357316}
+  - {fileID: 1639833656}
   - {fileID: 1997033846}
   - {fileID: 571762782}
   - {fileID: 176530742}
@@ -16032,4 +16091,3 @@ SceneRoots:
   - {fileID: 846374245}
   - {fileID: 1879724340}
   - {fileID: 1602681011}
-  - {fileID: 1639833656}

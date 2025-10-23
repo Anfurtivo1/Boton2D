@@ -98,7 +98,7 @@ public class ShopItemDisplayFull : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Se actualizaron los unlocks de todos los ítems de la tienda.");
+        
     }
 
     public void AddButton(GameObject button)

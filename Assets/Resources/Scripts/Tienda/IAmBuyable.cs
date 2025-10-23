@@ -27,7 +27,7 @@ public class IAmBuyable : MonoBehaviour
     void Start()
     {
 
-        shopManager = GameObject.FindGameObjectWithTag("ShopManager");
+        
         Invoke(nameof(TellMeYourPriceAndDeaths), 0.05f);
     }
 
@@ -37,6 +37,7 @@ public class IAmBuyable : MonoBehaviour
 
     public void CheckUnlocks()
     {
+        shopManager = GameObject.FindGameObjectWithTag("ShopManager");
         if (shopManager != null)
         {
             foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
@@ -61,6 +62,7 @@ public class IAmBuyable : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("Se actualizaron los unlocks de todos los ítems de la tienda.");
         }
         else
         {

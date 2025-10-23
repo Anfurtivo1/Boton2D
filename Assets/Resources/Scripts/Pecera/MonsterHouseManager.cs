@@ -19,6 +19,16 @@ public class MonsterHouseManager : MonoBehaviour
 
     public LifeManager LifeManager;
 
+    public ShopItemDisplayFull shopManager;
+
+    public List<GameObject> monstersSpawned;
+
+    // Límites de spawn (los mismos que el BouncingObject)
+    public float minX = -2f;
+    public float maxX = 2f;
+    public float minY = -14f;
+    public float maxY = -6f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,17 +48,40 @@ public class MonsterHouseManager : MonoBehaviour
 
     }
 
-    public void SpawnMonster()
+
+    public void SpawnMonster(GameObject monsterPrefab)
     {
-        //for (int i = 0; i < length; i++)
-        //{
-        //    Camera cam = Camera.main;
-        //    Vector3 randomViewport = new Vector3(Random.value, Random.value, 0);
-        //    Vector3 spawnPos = cam.ViewportToWorldPoint(randomViewport);
-        //    spawnPos.z = 0f;
-        //    Instantiate(prefab, spawnPos, Quaternion.identity);
-        //}
+        float randomX = Random.Range(minX, maxX);
+        float randomY = Random.Range(minY, maxY);
+        Vector3 spawnPos = new Vector3(randomX, randomY, 0f);
+
+        GameObject newMonster = Instantiate(monsterPrefab, spawnPos, Quaternion.identity);
+
+        // Puedes configurar los límites del BouncingObject del nuevo monstruo
+        BouncingObject bounce = newMonster.GetComponent<BouncingObject>();
+        if (bounce != null)
+        {
+            bounce.minX = minX;
+            bounce.maxX = maxX;
+            bounce.minY = minY;
+            bounce.maxY = maxY;
+        }
+
+        monstersSpawned.Add(newMonster);
+
+        Debug.Log($"Spawned {newMonster.name} en {spawnPos}");
     }
+
+
+
+    public void DespawnMonster(List<GameObject> monsters)
+    {
+        foreach (var item in monsters)
+        {
+            Object.Destroy(item);
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -58,42 +91,63 @@ public class MonsterHouseManager : MonoBehaviour
 
     public void cargarMonstruosPecera()
     {
-        foreach (var item in ShopItemDisplayFull.Instance.Shop_Bought_Monsters)
+        foreach (var item in shopManager.Shop_Bought_Monsters)
         {
             switch (item.Monster_ID)
             {
                 case 1:
+                    House_Monster_Prefabs[item.Monster_ID-1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID-1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 1 → hacer acción A");
                     Player.playerInstance.bullet_speed = Player.playerInstance.bullet_speed * 2;
                     break;
 
                 case 2:
+                    House_Monster_Prefabs[item.Monster_ID-1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 2 → hacer acción B");
                     Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
                     break;
 
                 case 3:
+                    House_Monster_Prefabs[item.Monster_ID-1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 3 → hacer acción C");
                     //+1 corazon
                     LifeManager.maxLives = LifeManager.maxLives + 1;
                     LifeManager.lifeImages[3].gameObject.SetActive( true );
                     break;
                 case 4:
+                    House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 4 → hacer acción D");
                     Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
                     break;
 
                 case 5:
+                    House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 5 → hacer acción E");
                     //LifeManager.maxLives = LifeManager.maxLives + 1;
                     Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
                     break;
 
                 case 6:
+                    House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 6 → hacer acción F");
                     Player.playerInstance.mejoraDinero1 = true;
                     break;
                 case 7:
+                    House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
+                    SpawnMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
+
                     Debug.Log($"El {item.Monster_Name} tiene ID 7 → hacer acción G");
                     Player.playerInstance.mejoraDinero1 = false;
                     Player.playerInstance.mejoraDinero2 = true;

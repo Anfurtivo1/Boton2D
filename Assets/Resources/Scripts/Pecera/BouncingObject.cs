@@ -4,34 +4,28 @@ public class BouncingObject : MonoBehaviour
 {
     public float speed = 5f;
     private Vector2 direction;
-    private Camera cam;
-    private Vector2 minBounds, maxBounds;
-    private float halfWidth, halfHeight;
+
+    // Límites de rebote
+    public float minX = -2f;
+    public float maxX = 2f;
+    public float minY = -14f;
+    public float maxY = -6f;
+
+    private float halfWidth = 0.5f;
+    private float halfHeight = 0.5f;
 
     void Start()
     {
-        cam = Camera.main;
-
         // Dirección inicial aleatoria
         direction = Random.insideUnitCircle.normalized;
 
-        // Calculamos los límites del mundo visibles por la cámara
-        Vector3 bottomLeft = cam.ViewportToWorldPoint(new Vector3(0, 0, 10));
-        Vector3 topRight = cam.ViewportToWorldPoint(new Vector3(1, 1, 10));
-        minBounds = new Vector2(bottomLeft.x, bottomLeft.y);
-        maxBounds = new Vector2(topRight.x, topRight.y);
-
-        // Tamaño del sprite para no salir del borde
+        // Obtener tamaño del sprite
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
             Vector2 size = sr.bounds.size;
             halfWidth = size.x / 2f;
             halfHeight = size.y / 2f;
-        }
-        else
-        {
-            halfWidth = halfHeight = 0.5f; // valor por defecto
         }
     }
 
@@ -41,17 +35,17 @@ public class BouncingObject : MonoBehaviour
         pos += (Vector3)(direction * speed * Time.deltaTime);
 
         // Rebote horizontal
-        if (pos.x - halfWidth < minBounds.x || pos.x + halfWidth > maxBounds.x)
+        if (pos.x - halfWidth < minX || pos.x + halfWidth > maxX)
         {
             direction.x = -direction.x;
-            pos.x = Mathf.Clamp(pos.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
+            pos.x = Mathf.Clamp(pos.x, minX + halfWidth, maxX - halfWidth);
         }
 
         // Rebote vertical
-        if (pos.y - halfHeight < minBounds.y || pos.y + halfHeight > maxBounds.y)
+        if (pos.y - halfHeight < minY || pos.y + halfHeight > maxY)
         {
             direction.y = -direction.y;
-            pos.y = Mathf.Clamp(pos.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
+            pos.y = Mathf.Clamp(pos.y, minY + halfHeight, maxY - halfHeight);
         }
 
         transform.position = pos;

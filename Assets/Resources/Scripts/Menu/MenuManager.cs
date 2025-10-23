@@ -78,7 +78,7 @@ public class MenuManager : MonoBehaviour
                 MoveCameraTo(shopCameraPosition);
 
                 // ?? Actualizar unlocks de los ítems de la tienda al entrar
-                ShopItemDisplayFull shopDisplay = FindObjectOfType<ShopItemDisplayFull>();
+                ShopItemDisplayFull shopDisplay = FindAnyObjectByType<ShopItemDisplayFull>();
                 if (shopDisplay != null)
                 {
                     shopDisplay.RefreshAllUnlocks();
@@ -153,6 +153,7 @@ public class MenuManager : MonoBehaviour
         Player.playerInstance.canShoot = true;
         LineBounce.lineBounceInstance.isOnMenus = false;
         canvasPecera.SetActive(false);
+        monsterHouseManager.DespawnMonster(monsterHouseManager.monstersSpawned);
         MoveCameraToOrigin();
     }
 }
