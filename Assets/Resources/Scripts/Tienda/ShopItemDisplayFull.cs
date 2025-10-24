@@ -126,7 +126,7 @@ public class ShopItemDisplayFull : MonoBehaviour
             {
                 Shop_Bought_Monsters.Add(Shop_Available_Monsters[i]);
 
-                BoughtMonster(Shop_Bought_Monsters[i].Monster_ID);
+                BoughtMonster(Shop_Available_Monsters[i].Monster_ID);
 
                 Shop_Available_Monsters.Remove(Shop_Available_Monsters[i]);
                 break;
