@@ -154,7 +154,7 @@ public class MenuManager : MonoBehaviour
         Player.playerInstance.canShoot = true;
         LineBounce.lineBounceInstance.isOnMenus = false;
         canvasPecera.SetActive(false);
-        monsterHouseManager.DespawnMonster(monsterHouseManager.monstersSpawned);
+        monsterHouseManager.OcultarMonster(monsterHouseManager.monstersSpawned);
         MoveCameraToOrigin();
     }
 }
