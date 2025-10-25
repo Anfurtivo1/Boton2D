@@ -99,6 +99,14 @@ public class MonsterHouseManager : MonoBehaviour
         }
     }
 
+    public void cargarMejoras()
+    {
+        foreach (var item in shopManager.Shop_Bought_Monsters)
+        {
+            MejorasManager(item.Monster_Name, false);
+        }
+    }
+
     public void MejorasManager(string nombreMonstruo,bool quitarPonerMejoras)
     {
         if (quitarPonerMejoras)//Si quieres quitarlas es true, si quieres ponerlas es false
@@ -116,8 +124,8 @@ public class MonsterHouseManager : MonoBehaviour
                     break;
                 case "Vapor":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 3 → quita acción C");
-                    LifeManager.maxLives = LifeManager.maxLives + 1;
-                    LifeManager.lifeImages[3].gameObject.SetActive(true);
+                    LifeManager.maxLives = LifeManager.maxLives - 1;
+                    LifeManager.lifeImages[3].gameObject.SetActive(false);
                     break;
 
                 case "Jellypus":
@@ -127,7 +135,7 @@ public class MonsterHouseManager : MonoBehaviour
                 case "Mimic":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 5 → quita acción E");
                     LifeManager.maxLives = LifeManager.maxLives - 1;
-                    LifeManager.lifeImages[4].gameObject.SetActive(true);
+                    LifeManager.lifeImages[4].gameObject.SetActive(false);
                     break;
 
                 case "Siren":
@@ -199,7 +207,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID-1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID-1]);
 
-                    MejorasManager(Enemy.Unborn.ToString(),false);
+                    //MejorasManager(Enemy.Unborn.ToString(),false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 1 → hacer acción A");
                     //Player.playerInstance.bullet_speed = Player.playerInstance.bullet_speed * 2;
@@ -209,7 +217,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID-1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
 
-                    MejorasManager(Enemy.Elemental.ToString(), false);
+                    //MejorasManager(Enemy.Elemental.ToString(), false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 2 → hacer acción B");
                     //Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
@@ -219,7 +227,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID-1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
 
-                    MejorasManager(Enemy.Vapor.ToString(), false);
+                    //MejorasManager(Enemy.Vapor.ToString(), false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 3 → hacer acción C");
                     ////+1 corazon
@@ -230,7 +238,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
 
-                    MejorasManager(Enemy.Jellypus.ToString(), false);
+                    //MejorasManager(Enemy.Jellypus.ToString(), false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 4 → hacer acción D");
                     //Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
@@ -240,7 +248,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
 
-                    MejorasManager(Enemy.Mimic.ToString(), false);
+                    //MejorasManager(Enemy.Mimic.ToString(), false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 5 → hacer acción E");
                     ////LifeManager.maxLives = LifeManager.maxLives + 1;
@@ -252,7 +260,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
 
-                    MejorasManager(Enemy.Siren.ToString(), false);
+                    //MejorasManager(Enemy.Siren.ToString(), false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 6 → hacer acción F");
                     //Player.playerInstance.mejoraDinero1 = true;
@@ -261,7 +269,7 @@ public class MonsterHouseManager : MonoBehaviour
                     House_Monster_Prefabs[item.Monster_ID - 1].gameObject.SetActive(true);
                     MostrarMonster(House_Monster_Prefabs[item.Monster_ID - 1]);
 
-                    MejorasManager(Enemy.Teratoma.ToString(), false);
+                    //MejorasManager(Enemy.Teratoma.ToString(), false);
 
                     //Debug.Log($"El {item.Monster_Name} tiene ID 7 → hacer acción G");
                     //Player.playerInstance.mejoraDinero1 = false;

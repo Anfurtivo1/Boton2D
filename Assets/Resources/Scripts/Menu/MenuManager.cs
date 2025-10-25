@@ -146,6 +146,9 @@ public class MenuManager : MonoBehaviour
         LineBounce.lineBounceInstance.isOnMenus = false;
         canvasShop.SetActive(false);
         Guardado.instance.GuardarDatos();
+
+        monsterHouseManager.cargarMejoras();
+
         MoveCameraToOrigin();
     }
 
