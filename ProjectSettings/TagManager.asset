@@ -12,6 +12,9 @@ TagManager:
   - ShopButton
   - PeceraButton
   - Enemy
+  - AdPopupTag
+  - DeathPopupTag
+  - FakeAdPopupTag
   layers:
   - Default
   - TransparentFX

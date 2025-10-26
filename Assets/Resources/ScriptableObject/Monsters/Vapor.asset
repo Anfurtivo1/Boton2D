@@ -15,7 +15,7 @@ MonoBehaviour:
   Monster_ID: 3
   Monster_Name: Vapor
   Amount_Monster_NeedKill: 25
-  Can_Spawn: 1
+  Can_Spawn: 0
   Other_Monster_Kill: {fileID: 11400000, guid: 2b73062defd15b12da11e3c6acec3d76, type: 2}
   Other_Monster_Kill_Amount: 10
   Monster_HP: 2

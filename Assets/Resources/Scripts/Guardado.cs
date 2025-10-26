@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Guardado : MonoBehaviour
 {
@@ -6,13 +7,8 @@ public class Guardado : MonoBehaviour
 
     public int userFirstTimeExperience = 0;
     public ShopItemDisplayFull shopManager;
-    //public float floatStart;
-    //public string stringStart;
-    //public int retrievedUserFirstTimeExperience;
-    //public float retrievedFloat;
-    //public string retrievedString;
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -22,6 +18,39 @@ public class Guardado : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        // Suscribirse al evento de carga de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        // Evita duplicar el evento si el objeto se destruye
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Espera un frame para asegurarse de que todos los objetos se hayan instanciado
+        StartCoroutine(FindShopManagerNextFrame());
+    }
+
+    private System.Collections.IEnumerator FindShopManagerNextFrame()
+    {
+        yield return null; // Espera 1 frame
+
+        GameObject shopObj = GameObject.FindWithTag("ShopManager");
+
+        if (shopObj != null)
+        {
+            shopManager = shopObj.GetComponent<ShopItemDisplayFull>();
+            Debug.Log($"[Guardado] ShopManager encontrado en la escena '{SceneManager.GetActiveScene().name}'.");
+        }
+        else
+        {
+            Debug.LogWarning($"[Guardado] No se encontró ningún objeto con el tag 'ShopManager' en la escena '{SceneManager.GetActiveScene().name}'.");
         }
     }
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   Monster_ID: 2
   Monster_Name: Elemental
   Amount_Monster_NeedKill: 15
-  Can_Spawn: 0
+  Can_Spawn: 1
   Other_Monster_Kill: {fileID: 11400000, guid: 76a0fdfb7103d1e42aa9e29de15de7ee, type: 2}
   Other_Monster_Kill_Amount: 5
   Monster_HP: 1
