@@ -95,19 +95,19 @@ public class Guardado : MonoBehaviour
 
         Player.playerInstance.mejoraDinero2 = PlayerPrefs.GetInt("mejoraDinero2", 0) == 1;
 
-        shopManager.monster1Bought = PlayerPrefs.GetInt("monster1Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster1Bought = PlayerPrefs.GetInt("monster1Bought", 0) == 1;
 
-        shopManager.monster2Bought = PlayerPrefs.GetInt("monster2Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster2Bought = PlayerPrefs.GetInt("monster2Bought", 0) == 1;
 
-        shopManager.monster3Bought = PlayerPrefs.GetInt("monster3Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster3Bought = PlayerPrefs.GetInt("monster3Bought", 0) == 1;
 
-        shopManager.monster4Bought = PlayerPrefs.GetInt("monster4Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster4Bought = PlayerPrefs.GetInt("monster4Bought", 0) == 1;
 
-        shopManager.monster5Bought = PlayerPrefs.GetInt("monster5Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster5Bought = PlayerPrefs.GetInt("monster5Bought", 0) == 1;
 
-        shopManager.monster6Bought = PlayerPrefs.GetInt("monster6Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster6Bought = PlayerPrefs.GetInt("monster6Bought", 0) == 1;
 
-        shopManager.monster7Bought = PlayerPrefs.GetInt("monster7Bought", 0) == 1;
+        ShopItemDisplayFull.Instance.monster7Bought = PlayerPrefs.GetInt("monster7Bought", 0) == 1;
 
         Player.playerInstance.bullet_speed = PlayerPrefs.GetFloat("bullet_speed");
 
@@ -121,7 +121,7 @@ public class Guardado : MonoBehaviour
     public void GuardarDatos()
     {
         // Guardamos en PlayerPrefs
-        PlayerPrefs.SetInt("bullet_Damage",Player.playerInstance.bullet_Damage);
+        PlayerPrefs.SetInt("bullet_Damage", Player.playerInstance.bullet_Damage);
         //PlayerPrefs.SetInt("player_HP", Player.playerInstance.player_HP);
         PlayerPrefs.SetInt("Money_Amount", GameManager.Instance.Money_Amount);
 

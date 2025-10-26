@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     }
     public int GetMonsterKills(int monsterID) //Me devuelve el número de kills que llevo
     {
+        Debug.Log("Viendo las muertes del monstruo número: " + monsterID);
         if (MonsterKills.ContainsKey(monsterID))
             return MonsterKills[monsterID];
         return 0;

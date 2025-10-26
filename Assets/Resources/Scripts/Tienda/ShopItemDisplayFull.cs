@@ -25,7 +25,7 @@ public class ShopItemDisplayFull : MonoBehaviour
     GameObject Shop_UI;
     List<GameObject> Shop_UI_Monster_Slots;
 
-    [Header ("Monstruos comprados")]
+    [Header("Monstruos comprados")]
     public bool monster1Bought = false;
     public bool monster2Bought = false;
     public bool monster3Bought = false;
@@ -61,7 +61,7 @@ public class ShopItemDisplayFull : MonoBehaviour
         maMoniText.text = "$" + GameManager.Instance.Money_Amount;
     }
 
-    void FillShop()
+    public void FillShop()
     {
         for (int i = 0; i < itemSlots.Count && i < shopItems.Count; i++)
         {
@@ -90,16 +90,11 @@ public class ShopItemDisplayFull : MonoBehaviour
     {
         foreach (var slot in itemSlots)
         {
-            if (slot != null)
-            {
-                var buyable = slot.GetComponent<IAmBuyable>();
-                if (buyable != null)
-                {
-                    buyable.CheckUnlocks();
-                }
-            }
+            Debug.Log(slot.name);
+            Debug.Log(itemSlots.Count);
+            slot.GetComponent<IAmBuyable>().CheckUnlocks();
         }
-        
+
     }
 
     public void AddButton(GameObject button)
@@ -132,6 +127,11 @@ public class ShopItemDisplayFull : MonoBehaviour
                 break;
             }
         }
+        string dineroConSimbolo = buyingPanel.transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text;
+        string dineroSinSimbolo = dineroConSimbolo.Substring(1);
+        int valor = int.Parse(dineroSinSimbolo);
+        GameManager.Instance.Money_Amount -= valor;
+        maMoniText.text = "$" + GameManager.Instance.Money_Amount;
 
         buttonMonsterSelected.SetActive(false);
         buyingPanel.SetActive(false);

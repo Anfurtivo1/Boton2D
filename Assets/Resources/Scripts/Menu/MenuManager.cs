@@ -39,6 +39,39 @@ public class MenuManager : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            if (gameObject.CompareTag("ShopButton"))
+            {
+                foreach (var obj in HideShop)
+                {
+                    if (obj != null)
+                        obj.SetActive(false);
+                }
+
+                LineBounce.lineBounceInstance.isOnMenus = true;
+                canvasShop.SetActive(true);
+                Debug.Log("Me voy a la tienda");
+                ShopItemDisplayFull.Instance.FillShop();
+                MoveCameraTo(shopCameraPosition);
+                ShopItemDisplayFull.Instance.RefreshAllUnlocks();
+            }
+
+            if (gameObject.CompareTag("PeceraButton"))
+            {
+                foreach (var obj in HidePecera)
+                {
+                    if (obj != null)
+                        obj.SetActive(false);
+                }
+
+                LineBounce.lineBounceInstance.isOnMenus = true;
+
+                monsterHouseManager.cargarMonstruosPecera();
+
+                canvasPecera.SetActive(true);
+                Debug.Log("Me voy a la pecera");
+                MoveCameraTo(peceraCameraPosition);
+            }
+
             if (lifeManager != null && !lifeManager.HasLives())
             {
                 Debug.Log("No puedes jugar, no tienes vidas disponibles.");
@@ -64,43 +97,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            if (gameObject.CompareTag("ShopButton"))
-            {
-                foreach (var obj in HideShop)
-                {
-                    if (obj != null)
-                        obj.SetActive(false);
-                }
 
-                LineBounce.lineBounceInstance.isOnMenus = true;
-                canvasShop.SetActive(true);
-                Debug.Log("Me voy a la tienda");
-                MoveCameraTo(shopCameraPosition);
-
-                // ?? Actualizar unlocks de los ítems de la tienda al entrar
-                ShopItemDisplayFull shopDisplay = FindAnyObjectByType<ShopItemDisplayFull>();
-                if (shopDisplay != null)
-                {
-                    shopDisplay.RefreshAllUnlocks();
-                }
-            }
-
-            if (gameObject.CompareTag("PeceraButton"))
-            {
-                foreach (var obj in HidePecera)
-                {
-                    if (obj != null)
-                        obj.SetActive(false);
-                }
-
-                LineBounce.lineBounceInstance.isOnMenus = true;
-
-                monsterHouseManager.cargarMonstruosPecera();
-
-                canvasPecera.SetActive(true);
-                Debug.Log("Me voy a la pecera");
-                MoveCameraTo(peceraCameraPosition);
-            }
         }
     }
 

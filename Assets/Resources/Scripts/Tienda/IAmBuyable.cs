@@ -27,7 +27,7 @@ public class IAmBuyable : MonoBehaviour
     void Start()
     {
 
-        
+
         Invoke(nameof(TellMeYourPriceAndDeaths), 0.05f);
     }
 
@@ -37,37 +37,31 @@ public class IAmBuyable : MonoBehaviour
 
     public void CheckUnlocks()
     {
-        shopManager = GameObject.FindGameObjectWithTag("ShopManager");
-        if (shopManager != null)
+        Debug.Log("Entro en CheckUnlocks de: " + gameObject.name);
+
+        enemyTypeKills = GameManager.Instance.GetMonsterKills(myID);
+
+        Debug.Log("Los enemyTypeKills del enemigo " + gameObject.transform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text + " son: " + enemyTypeKills);
+
+        if (enemyTypeKills >= enemyTypeKillsNeeded)
         {
-            foreach (var item in shopManager.GetComponent<ShopItemDisplayFull>().itemSlots)
+            bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
+            bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
+
+            if (GameManager.Instance.Money_Amount >= myPriceInt)
             {
-                enemyTypeKills = GameManager.Instance.GetMonsterKills(item.GetComponent<IAmBuyable>().myID);
-
-                if (enemyTypeKills >= item.GetComponent<IAmBuyable>().enemyTypeKillsNeeded)
-                {
-                    bG_Image_Back.GetComponent<Image>().sprite = buyableUp;
-                    bG_Image_Front.GetComponent<Image>().sprite = buyableDown;
-
-                    if (Player_Money >= myPriceInt)
-                    {
-                        itemIcon.GetComponent<Image>().color = Color.white;
-                        gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
-                    }
-
-                    else
-                    {
-                        itemIcon.GetComponent<Image>().color = Color.black;
-                        gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
-                    }
-                }
+                itemIcon.GetComponent<Image>().color = Color.white;
+                gameObject.transform.GetChild(0).GetComponent<Button>().enabled = true;
             }
-            Debug.Log("Se actualizaron los unlocks de todos los ítems de la tienda.");
+
+            else
+            {
+                itemIcon.GetComponent<Image>().color = Color.black;
+                gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
+            }
         }
-        else
-        {
-            Debug.Log("No encontré el shopManager");
-        }
+
+        Debug.Log("Se actualizaron los unlocks de todos los ítems de la tienda.");
     }
 
     public void TellMeYourPriceAndDeaths()
