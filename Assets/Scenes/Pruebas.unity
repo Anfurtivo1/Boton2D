@@ -1614,6 +1614,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 986094528}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &398797584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,6 +1803,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 653853417}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 986094528}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2236,9 +2260,13 @@ MonoBehaviour:
   HidePecera:
   - {fileID: 2107702879}
   - {fileID: 653853417}
+  - {fileID: 986094528}
   ShowMenu: []
   ShowShop: []
-  ShowPecera: []
+  ShowPecera:
+  - {fileID: 2107702879}
+  - {fileID: 653853417}
+  - {fileID: 986094528}
   spawnerScript: {fileID: 1997033845}
   mainCamera: {fileID: 1893076148}
   cameraMoveSpeed: 2
@@ -2614,6 +2642,7 @@ MonoBehaviour:
   HideShop:
   - {fileID: 2107702879}
   - {fileID: 653853417}
+  - {fileID: 986094528}
   HidePecera: []
   ShowMenu: []
   ShowShop: []
@@ -3287,7 +3316,6 @@ MonoBehaviour:
   - {fileID: 527726649}
   - {fileID: 629808952}
   - {fileID: 2107702879}
-  - {fileID: 653853417}
   HideShop: []
   HidePecera: []
   ShowMenu: []
@@ -4049,6 +4077,7 @@ GameObject:
   - component: {fileID: 986094529}
   - component: {fileID: 986094531}
   - component: {fileID: 986094530}
+  - component: {fileID: 986094532}
   m_Layer: 5
   m_Name: Puntos
   m_TagString: Untagged
@@ -4114,6 +4143,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986094528}
   m_CullTransparentMesh: 1
+--- !u!114 &986094532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986094528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a15f513f6bddf4c8dbbce5779aa3ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maMoniText: {fileID: 787856934}
 --- !u!1 &1036746415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1412762486341862550, guid: 8789788334056fd4997af30c565345e2, type: 3}
