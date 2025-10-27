@@ -105,9 +105,6 @@ public class EnemyController : MonoBehaviour
         //Animación de muerte si hacemos al final¿?
         if (animator != null)
             animator.SetTrigger("Die");
-        //Aqui muero
-        animator.SetBool("IsDead", true);
-        
     }
 
     public void Destruir()
