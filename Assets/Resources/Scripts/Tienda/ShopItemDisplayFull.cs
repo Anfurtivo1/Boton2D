@@ -123,18 +123,28 @@ public class ShopItemDisplayFull : MonoBehaviour
 
                 BoughtMonster(Shop_Available_Monsters[i].Monster_ID);
 
+                for (int j = 0; j < itemSlots.Count; j++)
+                {
+                    if (itemSlots[j].GetComponent<IAmBuyable>().myID == Shop_Available_Monsters[i].Monster_ID)
+                    {
+                        itemSlots.Remove(itemSlots[j]);
+                    }
+                }
+
                 Shop_Available_Monsters.Remove(Shop_Available_Monsters[i]);
+
                 break;
             }
-        }
-        string dineroConSimbolo = buyingPanel.transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text;
-        string dineroSinSimbolo = dineroConSimbolo.Substring(1);
-        int valor = int.Parse(dineroSinSimbolo);
-        GameManager.Instance.Money_Amount -= valor;
-        maMoniText.text = "$" + GameManager.Instance.Money_Amount;
 
-        buttonMonsterSelected.SetActive(false);
-        buyingPanel.SetActive(false);
+            string dineroConSimbolo = buyingPanel.transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text;
+            string dineroSinSimbolo = dineroConSimbolo.Substring(1);
+            int valor = int.Parse(dineroSinSimbolo);
+            GameManager.Instance.Money_Amount -= valor;
+            maMoniText.text = "$" + GameManager.Instance.Money_Amount;
+
+            buttonMonsterSelected.SetActive(false);
+            buyingPanel.SetActive(false);
+        }
     }
 
     public void BoughtMonster(int ID)
