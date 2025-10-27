@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -105,7 +106,13 @@ public class EnemyController : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("Die");
         //Aqui muero
-        Destroy(gameObject, 0.5f);
+        animator.SetBool("IsDead", true);
+        
+    }
+
+    public void Destruir()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
