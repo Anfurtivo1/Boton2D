@@ -124,8 +124,8 @@ public class MonsterHouseManager : MonoBehaviour
                     break;
                 case "Vapor":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 3 → quita acción C");
-                    LifeManager.maxLives = LifeManager.maxLives - 1;
-                    LifeManager.lifeImages[3].gameObject.SetActive(false);
+                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage - 1;
+                    
                     break;
 
                 case "Jellypus":
@@ -134,8 +134,7 @@ public class MonsterHouseManager : MonoBehaviour
                     break;
                 case "Mimic":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 5 → quita acción E");
-                    LifeManager.maxLives = LifeManager.maxLives - 1;
-                    LifeManager.lifeImages[4].gameObject.SetActive(false);
+                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage - 1;
                     break;
 
                 case "Siren":
@@ -167,8 +166,7 @@ public class MonsterHouseManager : MonoBehaviour
                     break;
                 case "Vapor":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 3 → hacer acción C");
-                    LifeManager.maxLives = LifeManager.maxLives + 1;
-                    LifeManager.lifeImages[3].gameObject.SetActive(true);
+                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
                     break;
 
                 case "Jellypus":
@@ -177,8 +175,7 @@ public class MonsterHouseManager : MonoBehaviour
                     break;
                 case "Mimic":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 5 → hacer acción E");
-                    LifeManager.maxLives = LifeManager.maxLives + 1;
-                    LifeManager.lifeImages[4].gameObject.SetActive(true);
+                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
                     break;
 
                 case "Siren":
