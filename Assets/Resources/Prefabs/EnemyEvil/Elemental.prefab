@@ -361,7 +361,7 @@ MonoBehaviour:
   Enemy_Data: {fileID: 11400000, guid: 2b73062defd15b12da11e3c6acec3d76, type: 2}
   Enemy_Base_Speed: 1
   animator: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 8319642109172914870}
 --- !u!58 &3399726984080443439
 CircleCollider2D:
   m_ObjectHideFlags: 0
