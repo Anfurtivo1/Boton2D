@@ -60,39 +60,8 @@ public class MonsterHouseManager : MonoBehaviour
 
     public void MostrarMonster(GameObject monsterPrefab)
     {
-
         monsterPrefab.SetActive(true);
-
-        //float randomX = Random.Range(minX, maxX);
-        //float randomY = Random.Range(minY, maxY);
-        //Vector3 spawnPos = new Vector3(randomX, randomY, 0f);
-
-        //GameObject newMonster = Instantiate(monsterPrefab, spawnPos, Quaternion.identity);
-
-        //// Puedes configurar los límites del BouncingObject del nuevo monstruo
-        //BouncingObject bounce = newMonster.GetComponent<BouncingObject>();
-        //if (bounce != null)
-        //{
-        //    bounce.minX = minX;
-        //    bounce.maxX = maxX;
-        //    bounce.minY = minY;
-        //    bounce.maxY = maxY;
-        //}
-
-        //monstersSpawned.Add(newMonster);
-
-        //Debug.Log($"Spawned {newMonster.name} en {spawnPos}");
     }
-
-
-
-    //public void DespawnMonster(List<GameObject> monsters)
-    //{
-    //    foreach (var item in monsters)
-    //    {
-    //        Object.Destroy(item);
-    //    }
-    //}
     public void OcultarMonster(List<GameObject> monsters)
     {
         foreach (var item in monsters)

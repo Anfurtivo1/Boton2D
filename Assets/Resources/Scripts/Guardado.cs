@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Guardado : MonoBehaviour
@@ -7,6 +7,7 @@ public class Guardado : MonoBehaviour
 
     public int userFirstTimeExperience = 0;
     public ShopItemDisplayFull shopManager;
+    public MonsterHouseManager monsterHouseManager;
 
     private void Awake()
     {
@@ -50,7 +51,7 @@ public class Guardado : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"[Guardado] No se encontr� ning�n objeto con el tag 'ShopManager' en la escena '{SceneManager.GetActiveScene().name}'.");
+            Debug.LogWarning($"[Guardado] No se encontró ningún objeto con el tag 'ShopManager' en la escena '{SceneManager.GetActiveScene().name}'.");
         }
     }
 
@@ -58,7 +59,7 @@ public class Guardado : MonoBehaviour
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     //void Start()
     //{
-    //    if (PlayerPrefs.HasKey("userFirstTimeExperience"))//Ya ten�a datos guardados, estos datos se guardan al acabar cada run
+    //    if (PlayerPrefs.HasKey("userFirstTimeExperience"))//Ya tenía datos guardados, estos datos se guardan al acabar cada run
     //    {
 
     //        CargarDatos();
@@ -108,6 +109,222 @@ public class Guardado : MonoBehaviour
         ShopItemDisplayFull.Instance.monster6Bought = PlayerPrefs.GetInt("monster6Bought", 0) == 1;
 
         ShopItemDisplayFull.Instance.monster7Bought = PlayerPrefs.GetInt("monster7Bought", 0) == 1;
+
+        #region activar los monstruos de la pecera
+
+        if (ShopItemDisplayFull.Instance.monster1Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[0].SetActive(true);
+        }
+        if (ShopItemDisplayFull.Instance.monster2Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[1].SetActive(true);
+        }
+        if (ShopItemDisplayFull.Instance.monster3Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[2].SetActive(true);
+        }
+        if (ShopItemDisplayFull.Instance.monster4Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[3].SetActive(true);
+        }
+        if (ShopItemDisplayFull.Instance.monster5Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[4].SetActive(true);
+        }
+        if (ShopItemDisplayFull.Instance.monster6Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[5].SetActive(true);
+        }
+        if (ShopItemDisplayFull.Instance.monster7Bought)
+        {
+            monsterHouseManager.House_Monster_Prefabs[6].SetActive(true);
+        }
+
+        #endregion
+
+        #region comprobar el array de monstruos comprados
+
+        if (ShopItemDisplayFull.Instance.monster1Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+                
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 1)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 1");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                    break;
+                }
+            }
+
+        }
+        if (ShopItemDisplayFull.Instance.monster2Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 2)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 2");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                }
+            }
+        }
+        if (ShopItemDisplayFull.Instance.monster3Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 3)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 3");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                }
+            }
+        }
+        if (ShopItemDisplayFull.Instance.monster4Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 4)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 4");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                }
+            }
+        }
+        if (ShopItemDisplayFull.Instance.monster5Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 5)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 5");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                }
+            }
+        }
+        if (ShopItemDisplayFull.Instance.monster6Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 6)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 6");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                }
+            }
+        }
+        if (ShopItemDisplayFull.Instance.monster7Bought)
+        {
+            foreach (GameObject slot in ShopItemDisplayFull.Instance.itemSlots)
+            {
+                if (slot == null)
+                {
+                    continue; // seguridad
+                }
+
+                IAmBuyable buyable = slot.GetComponent<IAmBuyable>();
+
+                if (buyable == null)// si no tiene el script, lo saltamos
+                {
+                    continue;
+                }
+
+                // ✅ Comprueba si el ID está entre 1 y 7 (ambos incluidos)
+                if (buyable.myID == 7)
+                {
+                    // Aquí haces lo que necesites
+                    Debug.Log("El objeto " + buyable.name + " tiene el ID 7");
+                    ShopItemDisplayFull.Instance.itemSlots.Remove(slot);
+                }
+            }
+        }
+        #endregion
+
+
 
         Player.playerInstance.bullet_speed = PlayerPrefs.GetFloat("bullet_speed");
 

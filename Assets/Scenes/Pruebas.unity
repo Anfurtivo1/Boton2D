@@ -1391,6 +1391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userFirstTimeExperience: 0
   shopManager: {fileID: 0}
+  monsterHouseManager: {fileID: 279819112}
 --- !u!1 &397154416
 GameObject:
   m_ObjectHideFlags: 0
