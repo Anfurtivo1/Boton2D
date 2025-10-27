@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7899389880390539652}
   - component: {fileID: 1683400440573803330}
   - component: {fileID: 8378107824291926488}
+  - component: {fileID: 7456034306139335583}
   m_Layer: 5
   m_Name: PopUpAnuncio
-  m_TagString: Untagged
+  m_TagString: FakeAdPopupTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 1791227055736338712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.997, y: 10.997, z: 10.997}
+  m_LocalScale: {x: 10.671918, y: 10.671918, z: 10.671918}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8691987542219158467}
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7456034306139335583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791227055736338712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329ca469ee0d8f649b712d8fa60f0e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.1
 --- !u!1 &2803484622545759452
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +158,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hola soy un anuncio miau
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ab8cc9340ed51c4da78b6652e7d62e9, type: 2}
+  m_sharedMaterial: {fileID: -7917139490704941354, guid: 9ab8cc9340ed51c4da78b6652e7d62e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -362,7 +376,7 @@ GameObject:
   - component: {fileID: 812067942573220060}
   - component: {fileID: 2255893776743404970}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseFakeAdButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,4 +483,28 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 812067942573220060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1791227055736338712}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LifeManager, Assembly-CSharp
+        m_MethodName: OnCloseFakeAdButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
