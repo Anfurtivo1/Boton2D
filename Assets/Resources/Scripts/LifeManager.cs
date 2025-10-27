@@ -29,8 +29,6 @@ public class LifeManager : MonoBehaviour
     public float lifeCooldownHours = 8f;
     private DateTime[] lifeLostTimes;
 
-    // ------------------------------------------------------------
-
     private void Awake()
     {
         // --- Singleton persistente ---
@@ -121,6 +119,7 @@ public class LifeManager : MonoBehaviour
         Button retryButton = GameObject.Find("RetryButton")?.GetComponent<Button>();
         if (retryButton != null)
         {
+            retryButton.onClick.RemoveAllListeners();
             retryButton.onClick.AddListener(OnRetryButton);
             retryButton.onClick.AddListener(VolverTiempo);
         }
@@ -128,17 +127,20 @@ public class LifeManager : MonoBehaviour
         Button adButton = GameObject.Find("AdButton")?.GetComponent<Button>();
         if (adButton != null)
         {
+            adButton.onClick.RemoveAllListeners();
             adButton.onClick.AddListener(OnWatchAdButton);
         }
 
         Button closeAdButton = GameObject.Find("CloseFakeAdButton")?.GetComponent<Button>();
         if (closeAdButton != null)
         {
+            closeAdButton.onClick.RemoveAllListeners();
             closeAdButton.onClick.AddListener(OnCloseFakeAdButton);
         }
 
         UpdateLifeUI();
-        Debug.Log("Referencias de UI y pop-ups reasignadas correctamente.");
+        ReasignarBotonesDeVida(); //importante
+        Debug.Log("Referencias de UI, pop-ups y botones de vida reasignadas correctamente.");
     }
 
     private GameObject FindPopupByNameOrTag(string name, string tag)
@@ -181,6 +183,7 @@ public class LifeManager : MonoBehaviour
         PlayerPrefs.Save();
 
         UpdateLifeUI();
+        ReasignarBotonesDeVida(); //asegurar clics activos tras perder una vida
 
         if (deathPopup != null)
         {
@@ -217,6 +220,7 @@ public class LifeManager : MonoBehaviour
         PlayerPrefs.Save();
 
         UpdateLifeUI();
+        ReasignarBotonesDeVida(); //asegurar clics activos tras recuperar vida
     }
 
     private void CheckLifeRegeneration()
@@ -243,6 +247,23 @@ public class LifeManager : MonoBehaviour
             if (i < lifeImages.Count && lifeImages[i] != null)
             {
                 lifeImages[i].sprite = (i < currentLives) ? fullLifeSprite : emptyLifeSprite;
+            }
+        }
+    }
+
+    private void ReasignarBotonesDeVida()
+    {
+        if (lifeImages == null || lifeImages.Count == 0) return;
+
+        for (int i = 0; i < lifeImages.Count; i++)
+        {
+            int index = i;
+            Button button = lifeImages[i].GetComponent<Button>();
+
+            if (button != null)
+            {
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() => OnClickEmptyLife(index));
             }
         }
     }
@@ -295,8 +316,6 @@ public class LifeManager : MonoBehaviour
                 adPopup.SetActive(true);
         }
     }
-
-
 
     #endregion
 }

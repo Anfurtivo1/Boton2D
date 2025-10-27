@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6496645b8dcffe544be915ba599bd42b, type: 3}
-  m_Name: Unborn
+  m_Name: 1Unborn
   m_EditorClassIdentifier: 
   Monster_ID: 1
   Monster_Name: Unborn

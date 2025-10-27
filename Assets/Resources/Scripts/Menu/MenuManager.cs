@@ -35,6 +35,11 @@ public class MenuManager : MonoBehaviour
 
     public MonsterHouseManager monsterHouseManager;
 
+    private void Start()
+    {
+       lifeManager = LifeManager.Instance;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
