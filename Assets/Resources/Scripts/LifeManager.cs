@@ -300,6 +300,9 @@ public class LifeManager : MonoBehaviour
         if (fakeAdPopup != null)
             fakeAdPopup.SetActive(false);
 
+        Player.playerInstance.canShoot = true;
+        LineBounce.lineBounceInstance.isOnMenus = false;
+
         RecoverLife();
     }
 
