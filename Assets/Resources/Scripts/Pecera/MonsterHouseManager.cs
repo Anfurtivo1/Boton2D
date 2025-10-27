@@ -35,6 +35,8 @@ public class MonsterHouseManager : MonoBehaviour
 
     public List<GameObject> monstersSpawned;
 
+    public int monsterCount;
+
     //// Límites de spawn (los mismos que el BouncingObject)
     //public float minX = -2f;
     //public float maxX = 2f;
@@ -109,6 +111,9 @@ public class MonsterHouseManager : MonoBehaviour
 
     public void MejorasManager(string nombreMonstruo,bool quitarPonerMejoras)
     {
+
+
+
         if (quitarPonerMejoras)//Si quieres quitarlas es true, si quieres ponerlas es false
         {
             switch (nombreMonstruo)//Se quitan
@@ -116,34 +121,40 @@ public class MonsterHouseManager : MonoBehaviour
                 case "Unborn":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 1 → quita acción A");
                     Player.playerInstance.bullet_speed = Player.playerInstance.bullet_speed / 2;
+                    monsterCount--;
                     break;
 
                 case "Elemental":
                     Debug.Log($"El " + nombreMonstruo + "  tiene ID 2 → quita acción B");
                     Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate * 0.75f;
+                    monsterCount--;
                     break;
                 case "Vapor":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 3 → quita acción C");
                     Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage - 1;
-                    
+                    monsterCount--;
                     break;
 
                 case "Jellypus":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 4 → quita acción D");
                     Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate * 0.75f;
+                    monsterCount--;
                     break;
                 case "Mimic":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 5 → quita acción E");
                     Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage - 1;
+                    monsterCount--;
                     break;
 
                 case "Siren":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 6 → quita acción F");
                     Player.playerInstance.mejoraDinero1 = false;
+                    monsterCount--;
                     break;
                 case "Teratoma":
                     Debug.Log($"El " + nombreMonstruo + " tiene ID 7 → quita acción G");
                     Player.playerInstance.mejoraDinero2 = false;
+                    monsterCount--;
                     break;
 
                 default:
@@ -151,45 +162,60 @@ public class MonsterHouseManager : MonoBehaviour
             }
         }
 
-        if (!quitarPonerMejoras)//Si quieres quitarlas es true, si quieres ponerlas es false
+        if (monsterCount < House_Max_Slots)
         {
-            switch (nombreMonstruo)//Se ponen
+            if (!quitarPonerMejoras)//Si quieres quitarlas es true, si quieres ponerlas es false
             {
-                case "Unborn":
-                    Debug.Log($"El " + nombreMonstruo + " tiene ID 1 → hacer acción A");
-                    Player.playerInstance.bullet_speed = Player.playerInstance.bullet_speed * 2;
-                    break;
+                switch (nombreMonstruo)//Se ponen
+                {
+                    case "Unborn":
+                        Debug.Log($"El " + nombreMonstruo + " tiene ID 1 → hacer acción A");
+                        Player.playerInstance.bullet_speed = Player.playerInstance.bullet_speed * 2;
+                        monsterCount++;
+                        break;
 
-                case "Elemental":
-                    Debug.Log($"El " + nombreMonstruo + "  tiene ID 2 → hacer acción B");
-                    Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
-                    break;
-                case "Vapor":
-                    Debug.Log($"El " + nombreMonstruo + " tiene ID 3 → hacer acción C");
-                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
-                    break;
+                    case "Elemental":
+                        Debug.Log($"El " + nombreMonstruo + "  tiene ID 2 → hacer acción B");
+                        Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
+                        monsterCount++;
+                        break;
+                    case "Vapor":
+                        Debug.Log($"El " + nombreMonstruo + " tiene ID 3 → hacer acción C");
+                        Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
+                        monsterCount++;
+                        break;
 
-                case "Jellypus":
-                    Debug.Log($"El " + nombreMonstruo + " tiene ID 4 → hacer acción D");
-                    Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
-                    break;
-                case "Mimic":
-                    Debug.Log($"El " + nombreMonstruo + " tiene ID 5 → hacer acción E");
-                    Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
-                    break;
+                    case "Jellypus":
+                        Debug.Log($"El " + nombreMonstruo + " tiene ID 4 → hacer acción D");
+                        Player.playerInstance.player_AttackRate = Player.playerInstance.player_AttackRate / 0.75f;
+                        monsterCount++;
+                        break;
+                    case "Mimic":
+                        Debug.Log($"El " + nombreMonstruo + " tiene ID 5 → hacer acción E");
+                        Player.playerInstance.bullet_Damage = Player.playerInstance.bullet_Damage + 1;
+                        monsterCount++;
+                        break;
 
-                case "Siren":
-                    Debug.Log(  $"El " + nombreMonstruo + " tiene ID 6 → hacer acción F");
-                    Player.playerInstance.mejoraDinero1 = true;
-                    break;
-                case "Teratoma":
-                    Debug.Log($"El " + nombreMonstruo + " tiene ID 7 → hacer acción G");
-                    Player.playerInstance.mejoraDinero2 = true;
-                    break;
+                    case "Siren":
+                        Debug.Log($"El " + nombreMonstruo + " tiene ID 6 → hacer acción F");
+                        Player.playerInstance.mejoraDinero1 = true;
+                        monsterCount++;
+                        break;
+                    case "Teratoma":
+                        Debug.Log($"El " + nombreMonstruo + " tiene ID 7 → hacer acción G");
+                        Player.playerInstance.mejoraDinero2 = true;
+                        monsterCount++;
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
+        }
+
+        if (monsterCount > House_Max_Slots)
+        {
+            Debug.Log("No puedes activar mas bichos");
         }
         
     }
