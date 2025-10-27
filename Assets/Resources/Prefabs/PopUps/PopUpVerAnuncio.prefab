@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xBFVer anuncio para recuperar una vida?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ab8cc9340ed51c4da78b6652e7d62e9, type: 2}
+  m_sharedMaterial: {fileID: -7917139490704941354, guid: 9ab8cc9340ed51c4da78b6652e7d62e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 1607873742147868253}
   - component: {fileID: 1666368295118368055}
   m_Layer: 5
-  m_Name: Si
+  m_Name: AdButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,7 +528,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1607873742147868253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8043285978451965500}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LifeManager, Assembly-CSharp
+        m_MethodName: OnWatchAdButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7528048879424480631
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +673,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7463565951952276240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8043285978451965500}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8043285978451965500
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,9 +697,10 @@ GameObject:
   - component: {fileID: 3768498421355420753}
   - component: {fileID: 1830230288013393465}
   - component: {fileID: 2955252010178988910}
+  - component: {fileID: 5153461805826643620}
   m_Layer: 5
   m_Name: PopUpVerAnuncio
-  m_TagString: Untagged
+  m_TagString: AdPopupTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +714,7 @@ RectTransform:
   m_GameObject: {fileID: 8043285978451965500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.997, y: 10.997, z: 10.997}
+  m_LocalScale: {x: 10.671918, y: 10.671918, z: 10.671918}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4808462511889716527}
@@ -728,3 +765,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5153461805826643620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043285978451965500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329ca469ee0d8f649b712d8fa60f0e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.1
