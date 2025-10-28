@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_ID: 5
   Monster_Name: Mimic
-  Amount_Monster_NeedKill: 60
+  Amount_Monster_NeedKill: 150
   Can_Spawn: 1
   Other_Monster_Kill: {fileID: 11400000, guid: 4713bbce4c31fea8a8511eec65c6bc43, type: 2}
-  Other_Monster_Kill_Amount: 75
+  Other_Monster_Kill_Amount: 40
   Monster_HP: 3
   Monster_Speed: 0.5
   Monster_LifeTime: 20

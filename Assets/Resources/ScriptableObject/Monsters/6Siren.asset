@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_ID: 6
   Monster_Name: Siren
-  Amount_Monster_NeedKill: 90
+  Amount_Monster_NeedKill: 250
   Can_Spawn: 1
   Other_Monster_Kill: {fileID: 11400000, guid: b6ba4cbb8f78709a98860c9fdd7125a7, type: 2}
-  Other_Monster_Kill_Amount: 150
+  Other_Monster_Kill_Amount: 60
   Monster_HP: 3
   Monster_Speed: 1
   Monster_LifeTime: 20
